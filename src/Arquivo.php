@@ -46,7 +46,7 @@ class Arquivo
     /**
      * @return the $header_label
      */
-    public function getHeader_label()
+    public function getHeaderLabel()
     {
         return $this->header_label;
     }
@@ -62,7 +62,7 @@ class Arquivo
     /**
      * @param field_type $header_label
      */
-    public function setHeader_label($header_label)
+    public function setHeaderLabel($header_label)
     {
         $this->header_label = $header_label;
     }
@@ -79,7 +79,7 @@ class Arquivo
      * metodo para adicionar boletos na remessa
      * @param unknown $boleto
      */
-    public function add_boleto($boleto)
+    public function addBoleto($boleto)
     {
         //preenchendo dados dos detalhes
         $detalhes = new Detalhes();
@@ -137,16 +137,16 @@ class Arquivo
         $cabecalho->setNumeroSequencialRemessa($dados['numero_remessa']);
         $cabecalho->setDataGravacao($dados['data_gravacao']);
 
-        $this->setHeader_label($cabecalho);
+        $this->setHeaderLabel($cabecalho);
     }
 
     /**
      * metodo para criar o texto inteiro da remessa
      */
-    public function get_text()
+    public function getText()
     {
         //Montando texto
-        $dados = $this->getHeader_label()->montar_linha() . self::QUEBRA_LINHA;
+        $dados = $this->getHeaderLabel()->montar_linha() . self::QUEBRA_LINHA;
         //montando linhas dos boletos
         $numero_sequencial = 2;
         foreach ($this->getDetalhes() as $detalhe) {
@@ -167,7 +167,7 @@ class Arquivo
      */
     public function save()
     {
-        $text = $this->get_text();
+        $text = $this->getText();
         //die($text);
         //atribuindo um nome do arquivo
         if ($this->getFilename() == '') {
@@ -181,7 +181,7 @@ class Arquivo
      * Metodo para retornar a quantida de detalhes inseridos na remessa
      * @return number
      */
-    public function count_detalhes()
+    public function countDetalhes()
     {
         return count($this->detalhes);
     }
