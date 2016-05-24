@@ -1,6 +1,8 @@
 <?php
 namespace Hmarinjr\RemessaBradesco;
 
+use Exception;
+
 class HeaderLabel extends Funcoes
 {
     //001 - 001 - 1 -  N CONSTANTE

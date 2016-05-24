@@ -1,6 +1,8 @@
 <?php
 namespace Hmarinjr\RemessaBradesco;
 
+use Exception;
+
 class Trailler extends Funcoes
 {
 
