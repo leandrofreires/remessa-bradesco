@@ -1,7 +1,7 @@
 <?php
 namespace Hmarinjr\RemessaBradesco;
 
-class Funcoes
+abstract class Funcoes
 {
     /**
      * metodo para montar uma string com espa�os em branco
@@ -293,4 +293,5 @@ class Funcoes
         return substr($string, 0, $tamanho);
     }
 
+    public abstract function montaLinha();
 }

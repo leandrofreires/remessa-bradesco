@@ -1,7 +1,7 @@
 <?php
 namespace Hmarinjr\RemessaBradesco;
 
-class Detalhes extends Funcoes implements IFuncoes
+class Detalhes extends Funcoes
 {
 
     //001 - 001 - 1 -  N CONSTANTE
@@ -1075,7 +1075,7 @@ class Detalhes extends Funcoes implements IFuncoes
      * @see IFuncoes::montar_linha()
      */
 
-    public function montar_linha()
+    public function montaLinha()
     {
          $linha = $this->getIdentificacao_registro() . //nao seta
             //opcional para pagador debito em conta corrente

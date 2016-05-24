@@ -132,10 +132,10 @@ class Arquivo
     {
         $cabecalho = new HeaderLabel();
         //TESTANDO O HEADERLABEL
-        $cabecalho->setCodigo_empresa($dados['codigo_empresa']);
-        $cabecalho->setNome_empresa($dados['razao_social']);
-        $cabecalho->setNumero_sequencial_remessa($dados['numero_remessa']);
-        $cabecalho->setData_gravacao($dados['data_gravacao']);
+        $cabecalho->setCodigoEmpresa($dados['codigo_empresa']);
+        $cabecalho->setNomeEmpresa($dados['razao_social']);
+        $cabecalho->setNumeroSequencialRemessa($dados['numero_remessa']);
+        $cabecalho->setDataGravacao($dados['data_gravacao']);
 
         $this->setHeader_label($cabecalho);
     }
@@ -155,7 +155,7 @@ class Arquivo
         }
         //montando rodap�
         $trailler = new Trailler();
-        $trailler->setNumero_sequencial_regsitro($numero_sequencial++);
+        $trailler->setNumeroSequencialRegsitro($numero_sequencial++);
         $this->setTrailler($trailler);
         $dados .= $this->getTrailler()->montar_linha();
 
