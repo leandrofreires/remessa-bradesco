@@ -936,7 +936,7 @@ class Detalhes extends Funcoes
         //verifica se � um numero
         if (is_numeric($numero_inscricao_pagador)) {
             //verificando o tipo de pagador
-            if ($this->getIdentificacao_tipo_incricao_pagador() == '01') {
+            if ($this->getIdentificacaoTipoIncricaoPagador() == '01') {
                 if ($this->validaTamanhoCampo($numero_inscricao_pagador, 11)) {
                     //completando campo
                     $numero_inscricao_pagador = '000' . $numero_inscricao_pagador;
@@ -945,7 +945,7 @@ class Detalhes extends Funcoes
                 } else {
                     throw new Exception('Error -  CPF do campo Numero Inscrição Pagador Invalido.');
                 }
-            } elseif ($this->getIdentificacao_tipo_incricao_pagador() == '02') {
+            } elseif ($this->getIdentificacaoTipoIncricaoPagador() == '02') {
                 //verificando o tamanho do campo
                 if ($this->validaTamanhoCampo($numero_inscricao_pagador, 14)) {
                     $this->numeroInscricaoPagador = $numero_inscricao_pagador;
@@ -1124,7 +1124,7 @@ class Detalhes extends Funcoes
 
     public function montaLinha()
     {
-         $linha = $this->getIdentificacao_registro() . //nao seta
+         $linha = $this->getIdentificacaoRegistro() . //nao seta
             //opcional para pagador debito em conta corrente
             $this->addZeros('', 5) .
             $this->addZeros('', 1) .
@@ -1140,37 +1140,37 @@ class Detalhes extends Funcoes
             $this->getIdentificacaoTituloBanco() .
             $this->getDigitoAutoConsferenciaBancaria() .
             $this->getDescontoBonificacaoDia() .
-            $this->getCondicao_emissao_papeleta_cobranca() . //nao seta
-            $this->getIdent_debito_automatico() . //nao seta
+            $this->getCondicaoEmissaoPapeletaCobranca() . //nao seta
+            $this->getIdentDebitoAutomatico() .
             $this->montarBranco('', 10) . //nao seta
             $this->getIndicadorRateioCredito() .
-            $this->getEnderecamento_aviso_debito() . //nao seta
+            $this->getEnderecamentoAvisoDebito() . //nao seta
             $this->montarBranco('', 2) . //nao seta
-            $this->getIdentificacao_ocorrencia() . //nao seta
-            $this->getNumero_documento() .
-            $this->getData_vencimento_titulo() .
-            $this->getValor_titulo() .
-            $this->getBanco_encarregado_cobranca() . //nao seta
-            $this->getAgencia_depositaria() . //nao seta
-            $this->getEspecie_titulo() . //nao seta
+            $this->getIdentificacaoOcorrencia() . //nao seta
+            $this->getNumeroDocumento() .
+            $this->getDataVencimentoTitulo() .
+            $this->getValorTitulo() .
+            $this->getBancoEncarregadoCobranca() . //nao seta
+            $this->getAgenciaDepositaria() . //nao seta
+            $this->getEspecieTitulo() . //nao seta
             $this->getIdentificacao() . //nao seta
-            $this->getData_emissao_titulo() .
-            $this->getInstrucao_1() . //nao seta
-            $this->getInstrucao_2() . //nao seta
-            $this->getValo_cobrado_dia_atraso() .
-            $this->getData_limite_desconto() .
-            $this->getValor_desconto() .
-            $this->getValor_iof() .
-            $this->getValor_abatimento_concedido_cancelado() .
-            $this->getIdentificacao_tipo_incricao_pagador() .
-            $this->getNumero_inscricao_pagador() .
-            $this->getNome_pagador() .
-            $this->getEndereco_pagador() .
-            $this->getPrimeira_mensagem() .
+            $this->getDataEmissaoTitulo() .
+            $this->getInstrucao1() . //nao seta
+            $this->getInstrucao2() . //nao seta
+            $this->getValoCobradoDiaAtraso() .
+            $this->getDataLimiteDesconto() .
+            $this->getValorDesconto() .
+            $this->getValorIOF() .
+            $this->getValorAbatimentoConcedidoCancelado() .
+            $this->getIdentificacaoTipoIncricaoPagador() .
+            $this->getNumeroInscricaoPagador() .
+            $this->getNomePagador() .
+            $this->getEnderecoPagador() .
+            $this->getPrimeiraMensagem() .
             $this->getCep() .
-            $this->getSufixo_cep() .
-            $this->getSacador_segunda_mensagem() .
-            $this->getNumero_sequencial_registro();
+            $this->getSufixoCep() .
+            $this->getSacadorSegundaMensagem() .
+            $this->getNumeroSequencialRegistro();
 
         return $this->validaLinha($linha);
     }

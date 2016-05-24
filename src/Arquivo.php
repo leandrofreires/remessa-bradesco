@@ -144,18 +144,18 @@ class Arquivo
     public function getText()
     {
         //Montando texto
-        $dados = $this->getHeaderLabel()->montar_linha() . self::QUEBRA_LINHA;
+        $dados = $this->getHeaderLabel()->montaLinha() . self::QUEBRA_LINHA;
         //montando linhas dos boletos
         $numero_sequencial = 2;
         foreach ($this->getDetalhes() as $detalhe) {
             $detalhe->setNumeroSequencialRegistro($numero_sequencial++);
-            $dados .= $detalhe->montar_linha() . self::QUEBRA_LINHA;
+            $dados .= $detalhe->montaLinha() . self::QUEBRA_LINHA;
         }
         //montando rodap�
         $trailler = new Trailler();
         $trailler->setNumeroSequencialRegsitro($numero_sequencial++);
         $this->setTrailler($trailler);
-        $dados .= $this->getTrailler()->montar_linha();
+        $dados .= $this->getTrailler()->montaLinha();
 
         return $dados;
     }
