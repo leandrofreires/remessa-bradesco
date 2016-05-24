@@ -85,40 +85,40 @@ class Arquivo
         $detalhes = new Detalhes();
 
         //informações da conta
-        $detalhes->setAgencia_debito($boleto['agencia']);
-        $detalhes->setDigito_debito_debito($boleto['agencia_dv']);
-        $detalhes->setConta_corrente($boleto['conta']);
-        $detalhes->setDigito_conta_corrente($boleto['conta_dv']);
+        $detalhes->setAgenciaDebito($boleto['agencia']);
+        $detalhes->setDigitoDebito($boleto['agencia_dv']);
+        $detalhes->setContaCorrente($boleto['conta']);
+        $detalhes->setDigitoContaCorrente($boleto['conta_dv']);
         $detalhes->setCarteira($boleto['carteira']);
 
         //informações do boleto
-        $detalhes->setCodigo_banco_debito_compensacao($boleto['habilitar_debito_compensacao']);
-        $detalhes->setIdentificacao_titulo_banco($boleto['nosso_numero']);
-        $detalhes->setDesconto_bonificacao_dia($boleto['desconto_dia']);
-        $detalhes->setIndicador_rateio_credito($boleto['rateio']);
-        $detalhes->setNumero_documento($boleto['numero_documento']);
-        $detalhes->setData_vencimento_titulo($boleto['vencimento']);
-        $detalhes->setValor_titulo($boleto['valor']);
-        $detalhes->setData_emissao_titulo($boleto['data_emissao_titulo']);
+        $detalhes->setCodigoBancoDebitoCompensacao($boleto['habilitar_debito_compensacao']);
+        $detalhes->setIdentificacaoTituloBanco($boleto['nosso_numero']);
+        $detalhes->setDescontoBonificacaoDia($boleto['desconto_dia']);
+        $detalhes->setIndicadorRateioCredito($boleto['rateio']);
+        $detalhes->setNumeroDocumento($boleto['numero_documento']);
+        $detalhes->setDataVencimentoTitulo($boleto['vencimento']);
+        $detalhes->setValorTitulo($boleto['valor']);
+        $detalhes->setDataEmissaoTitulo($boleto['data_emissao_titulo']);
 
         //taxas do boleto
-        $detalhes->setCampo_multa($boleto['habilitar_multa']);
-        $detalhes->setPercentual_multa($boleto['percentual_multa']);
-        $detalhes->setValo_cobrado_dia_atraso($boleto['valor_dia_atraso']);
-        $detalhes->setData_limite_desconto($boleto['data_limite_desconto']);
-        $detalhes->setValor_desconto($boleto['valor_desconto']);
-        $detalhes->setValor_iof($boleto['valor_iof']);
-        $detalhes->setValor_abatimento_concedido_cancelado($boleto['valor_abatimento_concedido']);
+        $detalhes->setCampoMulta($boleto['habilitar_multa']);
+        $detalhes->setPercentualMulta($boleto['percentual_multa']);
+        $detalhes->setValoCobradoDiaAtraso($boleto['valor_dia_atraso']);
+        $detalhes->setDataLimiteDesconto($boleto['data_limite_desconto']);
+        $detalhes->setValorDesconto($boleto['valor_desconto']);
+        $detalhes->setValorIOF($boleto['valor_iof']);
+        $detalhes->setValorAbatimentoConcedidoCancelado($boleto['valor_abatimento_concedido']);
 
         //informações do pagador
-        $detalhes->setIdentificacao_tipo_incricao_pagador($boleto['tipo_inscricao_pagador']);
-        $detalhes->setNumero_inscricao_pagador($boleto['numero_inscricao']);
-        $detalhes->setNome_pagador($boleto['nome_pagador']);
-        $detalhes->setEndereco_pagador($boleto['endereco_pagador']);
-        $detalhes->setPrimeira_mensagem($boleto['primeira_mensagem']);
+        $detalhes->setIdentificacaoTipoIncricaoPagador($boleto['tipo_inscricao_pagador']);
+        $detalhes->setNumeroInscricaoPagador($boleto['numero_inscricao']);
+        $detalhes->setNomePagador($boleto['nome_pagador']);
+        $detalhes->setEnderecoPagador($boleto['endereco_pagador']);
+        $detalhes->setPrimeiraMensagem($boleto['primeira_mensagem']);
         $detalhes->setCep($boleto['cep_pagador']);
-        $detalhes->setSufixo_cep($boleto['sufixo_cep_pagador']);
-        $detalhes->setSacador_segunda_mensagem($boleto['sacador_segunda_mensagem']);
+        $detalhes->setSufixoCep($boleto['sufixo_cep_pagador']);
+        $detalhes->setSacadorSegundaMensagem($boleto['sacador_segunda_mensagem']);
 
         //adicionando boleto
         $this->setDetalhes($detalhes);
@@ -150,7 +150,7 @@ class Arquivo
         //montando linhas dos boletos
         $numero_sequencial = 2;
         foreach ($this->getDetalhes() as $detalhe) {
-            $detalhe->setNumero_sequencial_registro($numero_sequencial++);
+            $detalhe->setNumeroSequencialRegistro($numero_sequencial++);
             $dados .= $detalhe->montar_linha() . self::QUEBRA_LINHA;
         }
         //montando rodap�

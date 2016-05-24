@@ -10,7 +10,7 @@ abstract class Funcoes
      * @param string $posicao
      * @return string|boolean
      */
-    public function montar_branco($string, $tamanho, $posicao = 'left')
+    public function montarBranco($string, $tamanho, $posicao = 'left')
     {
         //contanto tamanho da string
         $qtd_value = (int) strlen($string);
@@ -43,7 +43,7 @@ abstract class Funcoes
      * @param unknown $tamanho
      * @return string
      */
-    public function add_zeros($string, $tamanho, $posicao = 'left')
+    public function addZeros($string, $tamanho, $posicao = 'left')
     {
         //contanto tamanho da string
         $qtd_value = (int) strlen($string);
@@ -76,13 +76,13 @@ abstract class Funcoes
      * @param unknown $string
      * @return string
      */
-    public function valid_linha($string)
+    public function validaLinha($string)
     {
-        $return = $this->removeAccents($string);
+        $return = $this->removeAcentos($string);
 
-        if ($this->valid_tamanho_campo($return, 400)) {
+        if ($this->validaTamanhoCampo($return, 400)) {
             //convertendo string para mai�scula
-            return strtoupper($this->removeAccents($return));
+            return strtoupper($this->removeAcentos($return));
         } else {
             //die($string);
             throw new Exception('Erro - Informações de linha invalidas.');
@@ -94,7 +94,7 @@ abstract class Funcoes
      * @param unknown $value
      * @return string
      */
-    public function removeAccents($string, $slug = false)
+    public function removeAcentos($string, $slug = false)
     {
         // Código ASCII das vogais
         $ascii['a'] = range(224, 230);
@@ -133,7 +133,7 @@ abstract class Funcoes
      * @param unknown $tamanho
      * @return boolean
      */
-    public function valid_tamanho_campo($string, $tamanho, $menor_que = false)
+    public function validaTamanhoCampo($string, $tamanho, $menor_que = false)
     {
         $length = (int) strlen($string);
 
@@ -155,7 +155,7 @@ abstract class Funcoes
      * @param unknown $valor
      * @return mixed|boolean
      */
-    public function remove_formatacao_moeda($valor)
+    public function removeFormatacaoMoeda($valor)
     {
         if (is_numeric($valor)) {
             $return = str_replace(".", "", $valor);
@@ -225,7 +225,7 @@ abstract class Funcoes
      * @param unknown $nosso_numero
      * @return Ambigous <string, number>
      */
-    public function digito_verificador_nosso_numero($nosso_numero)
+    public function digitoVerificadorNossoNumero($nosso_numero)
     {
         //die($nosso_numero);
         $modulo = self::modulo11($nosso_numero, 7);
@@ -288,7 +288,7 @@ abstract class Funcoes
      * @param unknown $tamanho
      * @return string
      */
-    public function resume_texto($string, $tamanho)
+    public function resumeTexto($string, $tamanho)
     {
         return substr($string, 0, $tamanho);
     }

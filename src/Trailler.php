@@ -26,9 +26,9 @@ class Trailler extends Funcoes
     public function setNumeroSequencialRegsitro($numero_sequencial_regsitro)
     {
         if (is_numeric($numero_sequencial_regsitro)) {
-            $numero_sequencial_regsitro = $this->add_zeros($numero_sequencial_regsitro, 6);
+            $numero_sequencial_regsitro = $this->addZeros($numero_sequencial_regsitro, 6);
 
-            if ($this->valid_tamanho_campo($numero_sequencial_regsitro, 6)) {
+            if ($this->validaTamanhoCampo($numero_sequencial_regsitro, 6)) {
                 $this->numeroSequencialRegistro = $numero_sequencial_regsitro;
             } else {
                 throw new Exception('Error - Numero do sequencial invalido.');
@@ -46,10 +46,10 @@ class Trailler extends Funcoes
     {
         // TODO Auto-generated method stub
         $linha = $this->identificacaoRegistro .
-            $this->montar_branco('', 393) .
+            $this->montarBranco('', 393) .
             $this->getNumeroSequencialRegsitro();
 
-        return $this->valid_linha($linha);
+        return $this->validaLinha($linha);
     }
 
 }

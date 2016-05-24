@@ -92,7 +92,7 @@ class HeaderLabel extends Funcoes
             throw new Exception('Error - Não é um numero');
         }
 
-        $this->codigoEmpresa = $this->add_zeros($codigo_empresa, 20);
+        $this->codigoEmpresa = $this->addZeros($codigo_empresa, 20);
     }
 
     /**
@@ -106,7 +106,7 @@ class HeaderLabel extends Funcoes
             throw new Exception('Error - Tamanho de texto invalido, para o nome da empresa.');
         }
 
-        $this->nomeEmpresa = $this->montar_branco($nome_empresa, 30, 'right');
+        $this->nomeEmpresa = $this->montarBranco($nome_empresa, 30, 'right');
     }
 
     /**
@@ -132,8 +132,8 @@ class HeaderLabel extends Funcoes
         }
 
         //completando a string com zeros
-        $numero_sequencial_remessa = $this->add_zeros($numero_sequencial_remessa, 7);
-        if (!$this->valid_tamanho_campo($numero_sequencial_remessa, 7)) {
+        $numero_sequencial_remessa = $this->addZeros($numero_sequencial_remessa, 7);
+        if (!$this->validaTamanhoCampo($numero_sequencial_remessa, 7)) {
             throw new Exception('Error - Tamanho de texto invalido, para o campo numero sequencial remessa.');
         }
 
@@ -149,20 +149,20 @@ class HeaderLabel extends Funcoes
             $this->literalRemessa .
             $this->codigoServico .
             $this->literalServico .
-            $this->montar_branco('', 7) .
+            $this->montarBranco('', 7) .
             $this->getCodigoEmpresa() .
             $this->getNomeEmpresa() .
             $this->numeroBradescoCompensacao .
             $this->nomeBanco .
-            $this->montar_branco('', 7) .
+            $this->montarBranco('', 7) .
             $this->getDataGravacao() .
-            $this->montar_branco('', 8) .
+            $this->montarBranco('', 8) .
             $this->identificacaoSistema .
             $this->getNumeroSequencialRemessa() .
-            $this->montar_branco('', 277) .
+            $this->montarBranco('', 277) .
             $this->numeroSequencialRegistro;
 
-        return $this->valid_linha($linha);
+        return $this->validaLinha($linha);
     }
 
 }
