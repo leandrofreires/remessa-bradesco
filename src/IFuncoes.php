@@ -1,5 +1,7 @@
 <?php
-interface IFuncoes {
-	
-	public function montar_linha();
+namespace Hmarinjr\RemessaBradesco;
+
+interface IFuncoes
+{
+    public function montar_linha();
 }
