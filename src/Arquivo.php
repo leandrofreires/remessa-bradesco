@@ -6,9 +6,7 @@ class Arquivo
     private $header_label;
     private $filename;
     private $trailler;
-
     const QUEBRA_LINHA = "\r\n";
-
     private $detalhes = array();
 
     /**
@@ -185,5 +183,4 @@ class Arquivo
     {
         return count($this->detalhes);
     }
-
 }

@@ -110,10 +110,13 @@ abstract class Funcoes
         $ascii['y'] = array(253, 255);
         foreach ($ascii as $key => $item) {
             $acentos = '';
-            foreach ($item AS $codigo)
+            foreach ($item as $codigo) {
                 $acentos .= chr($codigo);
+            }
+
             $troca[$key] = '/[' . $acentos . ']/i';
         }
+
         $string = preg_replace(array_values($troca), array_keys($troca), $string);
         // Slug?
         if ($slug) {
@@ -187,10 +190,10 @@ abstract class Funcoes
         // Verifica se o numero de digitos informados � igual a 11
         if (strlen($cpf) != 11) {
             return false;
-        }
-        // Verifica se nenhuma das sequ�ncias invalidas abaixo
+        // Verifica se nenhuma das sequências invalidas abaixo
         // foi digitada. Caso afirmativo, retorna falso
-        else if ($cpf == '00000000000' ||
+        } elseif (
+            $cpf == '00000000000' ||
             $cpf == '11111111111' ||
             $cpf == '22222222222' ||
             $cpf == '33333333333' ||
@@ -199,7 +202,8 @@ abstract class Funcoes
             $cpf == '66666666666' ||
             $cpf == '77777777777' ||
             $cpf == '88888888888' ||
-            $cpf == '99999999999') {
+            $cpf == '99999999999'
+        ) {
             return false;
             // Calcula os digitos verificadores para verificar se o
             // CPF � v�lido
@@ -293,5 +297,5 @@ abstract class Funcoes
         return substr($string, 0, $tamanho);
     }
 
-    public abstract function montaLinha();
+    abstract public function montaLinha();
 }

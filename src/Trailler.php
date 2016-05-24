@@ -51,5 +51,4 @@ class Trailler extends Funcoes
 
         return $this->validaLinha($linha);
     }
-
 }

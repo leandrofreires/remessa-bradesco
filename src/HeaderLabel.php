@@ -38,7 +38,7 @@ class HeaderLabel extends Funcoes
     //109 - 110 - 2 - A
     private $identificacaoSistema = 'MX';
 
-    //111 - 117 - 7 - N  - COMPLETAR COM ZEROS A ESQUERDA - DEVE SER AUTOINCREMENTADA +1 - VALOR UNICO PARA CADA NOVO ARQUIVO
+    //111 - 117 - 7 - N
     private $numeroSequencialRemessa = '';
 
     //118 - 394 - 277 - A
@@ -164,5 +164,4 @@ class HeaderLabel extends Funcoes
 
         return $this->validaLinha($linha);
     }
-
 }

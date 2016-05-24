@@ -89,7 +89,7 @@ class Detalhes extends Funcoes
     private $dataEmissaoTitulo;
 
     //157 -  158 - 2 - N
-    private $instrucao1 = '00'; //<---- ver observações FUNÇÃO INTERESSANTE POIS PODE SER USADA PARA QUE O SISTEMA GERE AUTOMATICAMENTE O PROTESTO DE ACORDO COM O SOLICITADO
+    private $instrucao1 = '00'; //<---- ver observações
 
     //159 - 160 - 2 - N
     private $instrucao2 = '00'; //<---- ver observações
@@ -272,7 +272,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getIdentificacaoRegistro()
+    public function getIdentificacaoRegistro()
     {
         return $this->identificacaoRegistro;
     }
@@ -280,7 +280,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getCondicaoEmissaoPapeletaCobranca()
+    public function getCondicaoEmissaoPapeletaCobranca()
     {
         return $this->condicaoEmissaoPapeletaCobranca;
     }
@@ -288,7 +288,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getIdentDebitoAutomatico()
+    public function getIdentDebitoAutomatico()
     {
         return $this->identDebitoAutomatico;
     }
@@ -296,7 +296,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getEnderecamentoAvisoDebito()
+    public function getEnderecamentoAvisoDebito()
     {
         return $this->enderecamentoAvisoDebito;
     }
@@ -304,7 +304,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getIdentificacaoOcorrencia()
+    public function getIdentificacaoOcorrencia()
     {
         return $this->identificacaoOcorrencia;
     }
@@ -312,7 +312,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getNumeroDocumento()
+    public function getNumeroDocumento()
     {
         return $this->numeroDocumento;
     }
@@ -320,7 +320,7 @@ class Detalhes extends Funcoes
     /**
      * @return string ddmmyy
      */
-    function getDataVencimentoTitulo()
+    public function getDataVencimentoTitulo()
     {
         return $this->dataVencimentoTitulo;
     }
@@ -328,7 +328,7 @@ class Detalhes extends Funcoes
     /**
      * @return float
      */
-    function getValorTitulo()
+    public function getValorTitulo()
     {
         return $this->valorTitulo;
     }
@@ -336,7 +336,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getBancoEncarregadoCobranca()
+    public function getBancoEncarregadoCobranca()
     {
         return $this->bancoEncarregadoCobranca;
     }
@@ -344,7 +344,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getAgenciaDepositaria()
+    public function getAgenciaDepositaria()
     {
         return $this->agenciaDepositaria;
     }
@@ -352,7 +352,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getEspecieTitulo()
+    public function getEspecieTitulo()
     {
         return $this->especieTitulo;
     }
@@ -360,7 +360,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getIdentificacao()
+    public function getIdentificacao()
     {
         return $this->identificacao;
     }
@@ -368,7 +368,7 @@ class Detalhes extends Funcoes
     /**
      * @return string ddmmyy
      */
-    function getDataEmissaoTitulo()
+    public function getDataEmissaoTitulo()
     {
         return $this->dataEmissaoTitulo;
     }
@@ -376,7 +376,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getInstrucao1()
+    public function getInstrucao1()
     {
         return $this->instrucao1;
     }
@@ -384,7 +384,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getInstrucao2()
+    public function getInstrucao2()
     {
         return $this->instrucao2;
     }
@@ -392,7 +392,7 @@ class Detalhes extends Funcoes
     /**
      * @return float
      */
-    function getValoCobradoDiaAtraso()
+    public function getValoCobradoDiaAtraso()
     {
         return $this->valoCobradoDiaAtraso;
     }
@@ -400,7 +400,7 @@ class Detalhes extends Funcoes
     /**
      * @return string ddmmyy
      */
-    function getDataLimiteDesconto()
+    public function getDataLimiteDesconto()
     {
         return $this->dataLimiteDesconto;
     }
@@ -408,7 +408,7 @@ class Detalhes extends Funcoes
     /**
      * @return float
      */
-    function getValorDesconto()
+    public function getValorDesconto()
     {
         return $this->valorDesconto;
     }
@@ -416,7 +416,7 @@ class Detalhes extends Funcoes
     /**
      * @return float
      */
-    function getValorIOF()
+    public function getValorIOF()
     {
         return $this->valorIOF;
     }
@@ -424,7 +424,7 @@ class Detalhes extends Funcoes
     /**
      * @return float
      */
-    function getValorAbatimentoConcedidoCancelado()
+    public function getValorAbatimentoConcedidoCancelado()
     {
         return $this->valorAbatimentoConcedidoCancelado;
     }
@@ -432,7 +432,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getIdentificacaoTipoIncricaoPagador()
+    public function getIdentificacaoTipoIncricaoPagador()
     {
         return $this->identificacaoTipoIncricaoPagador;
     }
@@ -440,7 +440,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getNumeroInscricaoPagador()
+    public function getNumeroInscricaoPagador()
     {
         return $this->numeroInscricaoPagador;
     }
@@ -448,7 +448,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getNomePagador()
+    public function getNomePagador()
     {
         return $this->nomePagador;
     }
@@ -456,7 +456,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getEnderecoPagador()
+    public function getEnderecoPagador()
     {
         return $this->enderecoPagador;
     }
@@ -464,7 +464,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getPrimeiraMensagem()
+    public function getPrimeiraMensagem()
     {
         return $this->primeiraMensagem;
     }
@@ -472,7 +472,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getCep()
+    public function getCep()
     {
         return $this->cep;
     }
@@ -480,7 +480,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getSufixoCep()
+    public function getSufixoCep()
     {
         return $this->sufixoCep;
     }
@@ -488,7 +488,7 @@ class Detalhes extends Funcoes
     /**
      * @return string
      */
-    function getSacadorSegundaMensagem()
+    public function getSacadorSegundaMensagem()
     {
         return $this->sacadorSegundaMensagem;
     }
@@ -496,7 +496,7 @@ class Detalhes extends Funcoes
     /**
      * @return int
      */
-    function getNumeroSequencialRegistro()
+    public function getNumeroSequencialRegistro()
     {
         return $this->numeroSequencialRegistro;
     }
@@ -890,7 +890,9 @@ class Detalhes extends Funcoes
             $valor_abatimento_concedido_cancelado = $this->addZeros($valor_abatimento_concedido_cancelado, 13);
             //verificando quantidade de caracteres
             if ($this->validaTamanhoCampo($valor_abatimento_concedido_cancelado, 13)) {
-                $this->valorAbatimentoConcedidoCancelado = $this->removeFormatacaoMoeda($valor_abatimento_concedido_cancelado);
+                $this->valorAbatimentoConcedidoCancelado = $this->removeFormatacaoMoeda(
+                    $valor_abatimento_concedido_cancelado
+                );
             } else {
                 throw new Exception('Error: Quantidade de caracteres do campo Valor Concedido Cancelado invalidos.');
             }
@@ -933,8 +935,6 @@ class Detalhes extends Funcoes
         if (is_numeric($numero_inscricao_pagador)) {
             //verificando o tipo de pagador
             if ($this->getIdentificacao_tipo_incricao_pagador() == '01') {
-                //verificando tamanho do campo
-                //if($this->valid_tamanho_campo($numero_inscricao_pagador, 11) && $this->validaCPF($numero_inscricao_pagador) == true) {//DESABILITADO PARA VERIFICAÇÃO
                 if ($this->validaTamanhoCampo($numero_inscricao_pagador, 11)) {
                     //completando campo
                     $numero_inscricao_pagador = '000' . $numero_inscricao_pagador;
@@ -989,17 +989,20 @@ class Detalhes extends Funcoes
             if ($this->validaTamanhoCampo($endereco_pagador, 40)) {
                 $this->enderecoPagador = $endereco_pagador;
             } else {
-                throw new Exception('Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.');
+                throw new Exception(
+                    'Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.'
+                );
             }
         } else {
 
             $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
 
             if ($this->validaTamanhoCampo($endereco_pagador, 40)) {
-
                 $this->enderecoPagador = $endereco_pagador;
             } else {
-                throw new Exception('Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.');
+                throw new Exception(
+                    'Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.'
+                );
             }
         }
     }
@@ -1169,5 +1172,4 @@ class Detalhes extends Funcoes
 
         return $this->validaLinha($linha);
     }
-
 }
