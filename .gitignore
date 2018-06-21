@@ -10,4 +10,6 @@ vendor
 *.swo
 phpunit.xml
 composer.lock
+*.TST
+*.REM
 
