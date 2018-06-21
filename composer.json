@@ -1,16 +1,17 @@
 {
     "name": "leandrofreires/remessa-bradesco",
+    "description": "Gera arquivos remessa bradesco com a opcao de registro tipo 2 para mais datas de vencimento",
     "type": "project",
-    "license": "public",
-    "description": "Library to create a remittance",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Leandro Freire",
+            "email": "leandro.freire.work@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.4",
-        "phing/phing": "2.*",
         "ext-iconv": "*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~4.6",
-        "squizlabs/php_codesniffer": "~1.5"
     },
     "autoload": {
         "psr-4": {
@@ -20,4 +21,3 @@
         }
     }
 }
-
