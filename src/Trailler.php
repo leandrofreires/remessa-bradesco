@@ -1,5 +1,5 @@
 <?php
-namespace Hmarinjr\RemessaBradesco;
+namespace Leandrofreires\RemessaBradesco;
 
 use Exception;
 

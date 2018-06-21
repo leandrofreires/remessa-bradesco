@@ -1,148 +1,148 @@
 <?php
-namespace Hmarinjr\RemessaBradesco;
+namespace Leandrofreires\RemessaBradesco;
 
 use Exception;
 
 class Detalhes extends Funcoes
 {
-    //001 - 001 - 1 -  N CONSTANTE
+    
     private $identificacaoRegistro = 1;
 
-    //002 - 006 - 5 - N
+    
     private $agenciaDebito;
 
-    //007 - 007 - 1 - A
+    
     private $digitoDebito;
 
-    //008 - 012 - 5 N
+    
     private $razaoContaCorrente;
 
-    //013 - 019 - 7 - N
+    
     private $contaCorrente;
 
-    //020 - 020 - 1 - A
+    
     private $digitoContaCorrente;
 
-    //021 - 037 - 17 - A
+    
     private $identificacaoEmpresaBenificiarioBanco;
 
-    //038 - 062 - 25 - A
+    
     private $numeroControleParticipante;
 
-    //063 - 065 - 3 - N
+    
     private $codigoBancoDebitoCompensacao;
 
-    //066 - 066 - 1 - N
+    
     private $campoMulta;
 
-    //067 - 070 - 4 - N
+    
     private $percentualMulta;
 
-    //071 - 081 - 11 - N
+    
     private $identificacaoTituloBanco;
 
-    //082 - 082 - 1 - A
+    
     private $digitoAutoConsferenciaBancaria;
 
-    //083 - 092 - 10 - N
+    
     private $descontoBonificacaoDia;
 
-    //093 - 093 - 1 - CONSTANTE
-    private $condicaoEmissaoPapeletaCobranca = 2; //<--- verificar observações
+    
+    private $condicaoEmissaoPapeletaCobranca = 2; 
 
-    //094 - 094 - 1 - A - CONSTANTE
-    private $identDebitoAutomatico = 'N'; //<---- ver observações
+    
+    private $identDebitoAutomatico = 'N'; 
 
-    //095 - 104 - 10 - A
-    //PREENCHER ESPAÇOS EM BRANCO
-    //105 - 105 - 1 - A
+    
+    
+    
     private $indicadorRateioCredito;
 
-    //106 - 106 - 1 - N - CONSTANTE
-    private $enderecamentoAvisoDebito = '0'; //<---- ver observações
+    
+    private $enderecamentoAvisoDebito = '0'; 
 
-    //107 - 108 - 2 - A
-    //PREENCHER ESPAÇOS EM BRANCO
-    //109 - 110 - 2 - N - CONSTANTE
-    private $identificacaoOcorrencia = '01'; //<---- ver observações
+    
+    
+    
+    private $identificacaoOcorrencia = '01'; 
 
-    //111 - 120 - 10 - A
+    
     private $numeroDocumento;
 
-    //121 - 126 - 6 - N
+    
     private $dataVencimentoTitulo;
 
-    //127 - 139 - 13 - N
-    private $valorTitulo; //<---- ver observações
+    
+    private $valorTitulo; 
 
-    //140 - 142 - 3 - N
+    
     private $bancoEncarregadoCobranca = "000";
 
-    //143 - 147 - 5 - N
+    
     private $agenciaDepositaria = "00000";
 
-    //148 - 149 - 2 - N - CONSTRANTE
-    private $especieTitulo = '01'; //<---- ver observações
+    
+    private $especieTitulo = '01'; 
 
-    //150 - 150 - 1 - A
+    
     private $identificacao = "N";
 
-    //151 - 156 - 6 - N
+    
     private $dataEmissaoTitulo;
 
-    //157 -  158 - 2 - N
-    private $instrucao1 = '00'; //<---- ver observações
+    
+    private $instrucao1 = '00'; 
 
-    //159 - 160 - 2 - N
-    private $instrucao2 = '00'; //<---- ver observações
+    
+    private $instrucao2 = '00'; 
 
-    //161 - 173 - 13 - N
-    private $valoCobradoDiaAtraso; //<---- ver observações
+    
+    private $valoCobradoDiaAtraso; 
 
-    //174 - 179 - 6 - N
-    private $dataLimiteDesconto; //<---- ver observações
+    
+    private $dataLimiteDesconto; 
 
-    //180 - 192 - 13 - N
+    
     private $valorDesconto;
 
-    //192 - 205 - 13 N
+    
     private $valorIOF;
 
-    //206 - 218 - 13 - N
+    
     private $valorAbatimentoConcedidoCancelado;
 
-    //219 - 220 - 2 - N
-    private $identificacaoTipoIncricaoPagador; //<---- ver observações
+    
+    private $identificacaoTipoIncricaoPagador; 
 
-    //221 - 234 - 14 - N
-    private $numeroInscricaoPagador; //<---- ver observações
+    
+    private $numeroInscricaoPagador; 
 
-    //235 - 274 - 40 - A
+    
     private $nomePagador;
 
-    //275 - 314 - 40 - A
+    
     private $enderecoPagador;
 
-    //315 - 326 - 12 - A
+    
     private $primeiraMensagem;
 
-    //327 - 331 - 5 - N
+    
     private $cep;
 
-    //332 - 334 - 3 - N
+    
     private $sufixoCep;
 
-    //335 - 394 - 60 - A
-    private $sacadorSegundaMensagem; //<---- ver observações
+    
+    private $sacadorSegundaMensagem; 
 
-    //395 - 400 - 6 - N - AUTOINCREMENTADO E UNICO
+    
     private $numeroSequencialRegistro;
 
-    //EXTRA
+    
     private $carteira;
 
     /**
-     * @return the $carteira
+     * @return mixed mixed $cateira
      */
     public function getCarteira()
     {
@@ -150,7 +150,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $agencia_debito
+     * @return mixed $agencia_debito
      */
     public function getAgenciaDebito()
     {
@@ -158,7 +158,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $digito_debito_debito
+     * @return mixed $digito_debito_debito
      */
     public function getDigitoDebito()
     {
@@ -166,7 +166,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $razao_conta_corrente
+     * @return mixed
      */
     public function getRazaoContaCorrente()
     {
@@ -174,7 +174,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $conta_corrente
+     * @return mixed $conta_corrente
      */
     public function getContaCorrente()
     {
@@ -182,7 +182,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $digito_conta_corrente
+     * @return mixed $digito_conta_corrente
      */
     public function getDigitoContaCorrente()
     {
@@ -190,7 +190,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $identificacao_empresa_benificiario_banco
+     * @return mixed $identificacao_empresa_benificiario_banco
      */
     public function getIdentificacaoEmpresaBenificiarioBanco()
     {
@@ -203,12 +203,13 @@ class Detalhes extends Funcoes
             $this->getAgenciaDebito() .
             $this->getContaCorrente() .
             $this->getDigitoContaCorrente();
+        $this->identificacaoEmpresaBenificiarioBanco = $identificacao_empresa_benificiario_banco;
 
-        return $identificacao_empresa_benificiario_banco;
+        return $this->identificacaoEmpresaBenificiarioBanco;
     }
 
     /**
-     * @return the $numero_controle_participante
+     * @return mixed $numero_controle_participante
      */
     public function getNumeroControleParticipante()
     {
@@ -216,7 +217,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $codigo_banco_debito_compensacao
+     * @return mixed $codigo_banco_debito_compensacao
      */
     public function getCodigoBancoDebitoCompensacao()
     {
@@ -224,7 +225,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $campo_multa
+     * @return mixed $campo_multa
      */
     public function getCampoMulta()
     {
@@ -232,7 +233,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $percentual_multa
+     * @return mixed $percentual_multa
      */
     public function getPercentualMulta()
     {
@@ -240,7 +241,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $identificacao_titulo_banco
+     * @return mixed $identificacao_titulo_banco
      */
     public function getIdentificacaoTituloBanco()
     {
@@ -248,7 +249,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $digito_auto_consferencia_bancaria
+     * @return mixed $digito_auto_consferencia_bancaria
      */
     public function getDigitoAutoConsferenciaBancaria()
     {
@@ -256,7 +257,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $desconto_bonificacao_dia
+     * @return mixed $desconto_bonificacao_dia
      */
     public function getDescontoBonificacaoDia()
     {
@@ -264,7 +265,7 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @return the $indicador_rateio_credito
+     * @return mixed $indicador_rateio_credito
      */
     public function getIndicadorRateioCredito()
     {
@@ -504,211 +505,198 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @param field_type $agencia_debito
+     * @param $agencia_debito
+     * @throws Exception
      */
     public function setAgenciaDebito($agencia_debito)
     {
-        //verificando se � um numero
-        if (is_numeric($agencia_debito)) {
-            //completando o campo
-            $agencia_debito = $this->addZeros($agencia_debito, 5);
-            //realizando valida��es
-            if ($this->validaTamanhoCampo($agencia_debito, 5)) {
-                $this->agenciaDebito = $agencia_debito;
-            } else {
-                throw new Exception('Error: A quantidade dos digito do numero da agencia excedido.');
-            }
-        } else {
+        if (!is_numeric($agencia_debito))
             throw new Exception('Error: O campo Agencia_debito não é um numero.');
-        }
+
+        if (mb_strlen($agencia_debito) > 5)
+            throw new Exception('Agencia nao pode ser maior que 5');
+
+        $agencia_debito = $this->addZeros($agencia_debito, 5);
+
+        if (!$this->validaTamanhoCampo($agencia_debito, 5))
+            throw new Exception('A quantidade dos digito do numero da agencia excedido.');
+
+        $this->agenciaDebito = $agencia_debito;
     }
 
     /**
-     * @param field_type $digito_debito_debito
+     * @param $digito_debito_debito
+     * @throws Exception
      */
     public function setDigitoDebito($digito_debito_debito)
     {
-        //verifica se � numerico
-        if (is_numeric($digito_debito_debito)) {
-            //validando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($digito_debito_debito, 1)) {
-                $this->digitoDebito = $digito_debito_debito;
-            } else {
-                throw new Exception('Error: Quantidade de digitos para o campo Digito Agencia Debito invalidos.');
-            }
-        } else {
+        if (!is_numeric($digito_debito_debito))
             throw new Exception('Error: O campo Digito Agencia debito não é um numero.');
-        }
+
+        if (!$this->validaTamanhoCampo($digito_debito_debito, 1))
+            throw new Exception('Error: Quantidade de digitos para o campo Digito Agencia Debito invalidos.');
+
+        $this->digitoDebito = $digito_debito_debito;
     }
 
     /**
-     * @param field_type $razao_conta_corrente
+     * @param $razao_conta_corrente
+     * @throws Exception
      */
     public function setRazaoContaCorrente($razao_conta_corrente)
     {
-        //validando para ver se � um numero
-        if (is_numeric($razao_conta_corrente)) {
-            //completando com zeros a string
-            $razao_conta_corrente = $this->addZeros($razao_conta_corrente, 5);
-            //validando o tamanho da string
-            if ($this->validaTamanhoCampo($razao_conta_corrente, 5)) {
-                $this->razaoContaCorrente = $razao_conta_corrente;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Razão Conta Corrente invalidos.');
-            }
-        } else {
+        if (!is_numeric($razao_conta_corrente))
             throw new Exception('Error: O campo Razão Conta Corrente não é um numero.');
-        }
+
+        if (!mb_strlen($razao_conta_corrente) <= 5)
+            throw new Exception('O campo Razão Conta Corrente excede 5 caracteres');
+
+        $razao_conta_corrente = $this->addZeros($razao_conta_corrente, 5);
+
+        if (!$this->validaTamanhoCampo($razao_conta_corrente, 5))
+            throw new Exception('Error: Quantidade de caracteres do campo Razão Conta Corrente invalidos.');
+
+        $this->razaoContaCorrente = $razao_conta_corrente;
     }
 
     /**
-     * @param field_type $conta_corrente
+     * @param $conta_corrente
+     * @throws Exception
      */
     public function setContaCorrente($conta_corrente)
     {
-        //verificando se � um numero
-        if (is_numeric($conta_corrente)) {
-            $conta_corrente = $this->addZeros($conta_corrente, 7);
-
-            if ($this->validaTamanhoCampo($conta_corrente, 7)) {
-                $this->contaCorrente = $conta_corrente;
-            } else {
-                throw new Exception('Error: Quantidade d ecaracteres do campo Conta Corrente invalidos.');
-            }
-        } else {
+        if (!is_numeric($conta_corrente))
             throw new Exception('Error: O campo Conta Corrente não é um numero.');
-        }
+
+        if (mb_strlen($conta_corrente) > 7)
+            throw new Exception('O campo Conta Corrente não pode ser maior que 7 caracteres');
+        $conta_corrente = $this->addZeros($conta_corrente, 7);
+
+        if (!$this->validaTamanhoCampo($conta_corrente, 7))
+            throw new Exception('Error: Quantidade d ecaracteres do campo Conta Corrente invalidos.');
+        $this->contaCorrente = $conta_corrente;
     }
 
     /**
-     * @param field_type $digito_conta_corrente
+     * @param $digito_conta_corrente
+     * @throws Exception
      */
     public function setDigitoContaCorrente($digito_conta_corrente)
     {
-        //verificando se � numerico
-        if (is_numeric($digito_conta_corrente)) {
-            if ($this->validaTamanhoCampo($digito_conta_corrente, 1)) {
-                $this->digitoContaCorrente = $digito_conta_corrente;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Digito Conta Conrrente.');
-            }
-        } else {
+        
+        if (!is_numeric($digito_conta_corrente))
             throw new Exception('Error: O campo Digito Conta Corrente não é um numero.');
-        }
+        if (!$this->validaTamanhoCampo($digito_conta_corrente, 1))
+            throw new Exception('Error: Quantidade de caracteres do campo Digito Conta Conrrente.');
+        $this->digitoContaCorrente = $digito_conta_corrente;
     }
 
     /**
      * semelhante ao numero do documento - pode ser uma chave unica de identificação de cada boleto da remessa
-     * @param field_type $numero_controle_participante
+     * @param $numero_controle_participante
+     * @throws Exception
      */
     public function setNumeroControleParticipante($numero_controle_participante)
     {
-        //verificando e � um numero
-        if (is_numeric($numero_controle_participante)) {
-            //adicionando caracteres zeros
-            $numero_controle_participante = $this->addZeros($numero_controle_participante, 25);
-            //verificando tamanho da string
-            if ($this->validaTamanhoCampo($numero_controle_participante, 25)) {
-                $this->numeroControleParticipante = $numero_controle_participante;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Numero Controle Participante invalidos.');
-            }
-        } else {
+        if (!is_numeric($numero_controle_participante))
             throw new Exception('Error: O campo Numero Controle Participante não é um numero.');
-        }
+            
+        $numero_controle_participante = $this->addZeros($numero_controle_participante, 25);
+            
+        if (!$this->validaTamanhoCampo($numero_controle_participante, 25))
+            throw new Exception('Error: Quantidade de caracteres do campo Numero Controle Participante invalidos.');
+
+        $this->numeroControleParticipante = $numero_controle_participante;
     }
 
     /**
      * se existir debito automatico para o beneficiario, dever� ser passado como parametro TRUE
-     * @param string $codigo_banco_debito_compensacao
+     * @param  $codigo_banco_debito_compensacao
      */
     public function setCodigoBancoDebitoCompensacao($codigo_banco_debito_compensacao = false)
     {
-        if ($codigo_banco_debito_compensacao == true) {
+        $this->codigoBancoDebitoCompensacao = '000';
+        if (!$codigo_banco_debito_compensacao == false)
             $this->codigoBancoDebitoCompensacao = '237';
-        } else {
-            $this->codigoBancoDebitoCompensacao = '000';
-        }
     }
 
     /**
      * habilita o campo para receber a porcentagem de multas por atraso de pagamento
-     * @param field_type $campo_multa
+     * @param $campo_multa
      */
     public function setCampoMulta($campo_multa = true)
     {
-        if ($campo_multa == true) {
-            $this->campoMulta = 2;
-        } else {
+        $this->campoMulta = 2;
+        if (!$campo_multa == true)
             $this->campoMulta = '0';
-        }
     }
 
     /**
-     * @param field_type $percentual_multa
+     * @param $percentual_multa
+     * @throws Exception
      */
     public function setPercentualMulta($percentual_multa)
     {
-        //verificando e o campo multa foi setado como verdadeiro
+        $this->percentualMulta = '0000';
         if ($this->getCampoMulta()) {
-            //verificando se � um numero
-            if (is_numeric($percentual_multa)) {
-                //adicionando caracteres zeros na string
-                $percentual_multa = $this->addZeros($percentual_multa, 4);
-                //verificando o tamnho da string
-                if ($this->validaTamanhoCampo($percentual_multa, 4)) {
-                    $this->percentualMulta = $percentual_multa;
-                } else {
-                    throw new Exception('Error: Quantidade de caracteres do campo Percentual Multa invalidos.');
-                }
-            } else {
+            if (!is_numeric($percentual_multa))
                 throw new Exception('Error: O campo Percentual Multa não é um numero.');
-            }
-        } else {
-            $this->percentualMulta = '0000';
+
+            if (mb_strlen($percentual_multa) > 4)
+                throw new Exception('Error: O campo Percentual Multa tem que ter no maximo 4 caracteres.');
+
+            $percentual_multa = $this->addZeros($percentual_multa, 4);
+
+            if (!$this->validaTamanhoCampo($percentual_multa, 4))
+                throw new Exception('Error: Quantidade de caracteres do campo Percentual Multa invalidos.');
+            $this->percentualMulta = $percentual_multa;
         }
+
     }
 
     /**
      * campo de NOSSO NUMERO, identificador unico para cada boleto gerado
-     * @param field_type $identificacao_titulo_banco
+     * @param $identificacao_titulo_banco
+     * @throws Exception
      */
     public function setIdentificacaoTituloBanco($identificacao_titulo_banco)
     {
-        //verificando se � um numero
-        if (is_numeric($identificacao_titulo_banco)) {
-            //adicionando zeros na string
-            $identificacao_titulo_banco = $this->addZeros($identificacao_titulo_banco, 11);
-            //verificando o tamnho da string
-            if ($this->validaTamanhoCampo($identificacao_titulo_banco, 11)) {
-                $this->identificacaoTituloBanco = $identificacao_titulo_banco;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Identificação Titulo Banco invalidos.');
-            }
-        } else {
+        
+        if (!is_numeric($identificacao_titulo_banco))
             throw new Exception('Error: O campo Identificação Titulo Banco não é um numero.');
-        }
+
+        if (mb_strlen($identificacao_titulo_banco) > 11)
+            throw new Exception('Error: Quantidade de caracteres do campo Identificação Titulo Banco invalidos.');
+
+        $identificacao_titulo_banco = $this->addZeros($identificacao_titulo_banco, 11);
+
+        if (!$this->validaTamanhoCampo($identificacao_titulo_banco, 11))
+            throw new Exception('Error: Quantidade de caracteres do campo Identificação Titulo Banco invalidos.');
+
+        $this->identificacaoTituloBanco = $identificacao_titulo_banco;
+
+        $this->digitoAutoConsferenciaBancaria = $this->digitoVerificadorNossoNumero($this->getCarteira() . $identificacao_titulo_banco);
+
     }
 
     /**
      * valor de bonifica��o por dia
-     * @param field_type $desconto_bonificacao_dia
+     * @param $desconto_bonificacao_dia
+     * @throws Exception
      */
     public function setDescontoBonificacaoDia($desconto_bonificacao_dia)
     {
-        //verificando se � um numero
-        if (is_numeric($desconto_bonificacao_dia)) {
-            //adicionando zeros na string
-            $desconto_bonificacao_dia = $this->addZeros($desconto_bonificacao_dia, 10);
-            //verificando quantidade de caracteres
-            if ($this->validaTamanhoCampo($desconto_bonificacao_dia, 10)) {
-                $this->descontoBonificacaoDia = $desconto_bonificacao_dia;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Desconto Bonificação Dia invalidos');
-            }
-        } else {
+        
+        if (!is_numeric($desconto_bonificacao_dia))
             throw new Exception('Error: O campo Desconto Bonificação Dia  não é um numero.');
-        }
+
+        $desconto_bonificacao_dia = $this->addZeros($desconto_bonificacao_dia, 10);
+            
+        if (!$this->validaTamanhoCampo($desconto_bonificacao_dia, 10))
+            throw new Exception('Error: Quantidade de caracteres do campo Desconto Bonificação Dia invalidos');
+
+        $this->descontoBonificacaoDia = $desconto_bonificacao_dia;
+
     }
 
     /**
@@ -716,195 +704,167 @@ class Detalhes extends Funcoes
      */
     public function setIndicadorRateioCredito($indicador_rateio_credito)
     {
-        if ($indicador_rateio_credito) {
+        $this->indicadorRateioCredito = ' ';
+        if ($indicador_rateio_credito)
             $this->indicadorRateioCredito = 'R';
-        } else {
-            $this->indicadorRateioCredito = ' ';
-        }
     }
 
     /**
-     * @param field_type $numero_documento
+     * @param  $numero_documento
+     * @throws Exception
      */
     public function setNumeroDocumento($numero_documento)
     {
-        //verificando se � alfanumerico
-        if (ctype_alnum($numero_documento)) {
-            //adicionando zeros na string
-            $numero_documento = $this->addZeros($numero_documento, 10);
-            //verificando quantidade de caracteres
-            if ($this->validaTamanhoCampo($numero_documento, 10)) {
-                $this->numeroDocumento = $numero_documento;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Numero Documento invalidos.');
-            }
-        } else {
+        if (!ctype_alnum($numero_documento))
             throw new Exception('Error: O campo Numero Documento não é alfanumerico.');
-        }
+            
+        $numero_documento = $this->addZeros($numero_documento, 10);
+
+        if (!$this->validaTamanhoCampo($numero_documento, 10))
+            throw new Exception('Error: Quantidade de caracteres do campo Numero Documento invalidos.');
+
+        $this->numeroDocumento = $numero_documento;
     }
 
     /**
-     * @param field_type $data_vencimento_titulo
+     * @param $data_vencimento_titulo
+     * @throws Exception
      */
     public function setDataVencimentoTitulo($data_vencimento_titulo)
     {
-        //verificando se � um numero
-        if (is_numeric($data_vencimento_titulo)) {
-            //adicionando zeros na string
-            $data_vencimento_titulo = $this->addZeros($data_vencimento_titulo, 6);
-            //verificando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($data_vencimento_titulo, 6)) {
-                $this->dataVencimentoTitulo = $data_vencimento_titulo;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Data Vencimento Titulo invalidos.');
-            }
-        } else {
+        if (!is_numeric($data_vencimento_titulo))
             throw new Exception('Error: O campo Data Vencimento Titulo não é um numero.');
-        }
+
+        $data_vencimento_titulo = $this->addZeros($data_vencimento_titulo, 6);
+            
+        if (!$this->validaTamanhoCampo($data_vencimento_titulo, 6))
+            throw new Exception('Error: Quantidade de caracteres do campo Data Vencimento Titulo invalidos.');
+        $this->dataVencimentoTitulo = $data_vencimento_titulo;
     }
 
     /**
-     * @param field_type $valor_titulo
+     * @param $valor_titulo
+     * @throws Exception
      */
     public function setValorTitulo($valor_titulo)
     {
-        //verificando se � um numero
-        if (is_numeric($valor_titulo)) {
-            //adicionando zeros na string
-            $valor_titulo = $this->addZeros($valor_titulo, 13);
-            //verificando quantidade de caracteres
-            if ($this->validaTamanhoCampo($valor_titulo, 13)) {
-                $this->valorTitulo = $this->removeFormatacaoMoeda($valor_titulo);
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Valor Titulo invalidos.');
-            }
-        } else {
+        if (!is_numeric($valor_titulo))
             throw new Exception('Error: O campo Valor Titulo não é um numero.');
-        }
+
+        $valor_titulo = $this->addZeros($this->removeFormatacaoMoeda($valor_titulo), 13);
+
+        if (!$this->validaTamanhoCampo($valor_titulo, 13))
+            throw new Exception('Error: Quantidade de caracteres do campo Valor Titulo invalidos.');
+
+        $this->valorTitulo = $valor_titulo;
     }
 
     /**
-     * @param field_type $data_emissao_titulo
+     * @param $data_emissao_titulo
+     * @throws Exception
      */
     public function setDataEmissaoTitulo($data_emissao_titulo)
     {
-        //verificando se � um numero
-        if (is_numeric($data_emissao_titulo)) {
-            //adicionando zeros
-            $data_emissao_titulo = $this->addZeros($data_emissao_titulo, 6);
-            //verificando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($data_emissao_titulo, 6)) {
-                $this->dataEmissaoTitulo = $data_emissao_titulo;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Data Emiss�o Titulo invalidos.');
-            }
-        } else {
+        if (!is_numeric($data_emissao_titulo))
             throw new Exception('Error: O campo Data Emissao Titulo não é um numero.');
-        }
+            
+        $data_emissao_titulo = $this->addZeros($data_emissao_titulo, 6);
+            
+        if (!$this->validaTamanhoCampo($data_emissao_titulo, 6))
+            throw new Exception('Error: Quantidade de caracteres do campo Data Emiss�o Titulo invalidos.');
+
+        $this->dataEmissaoTitulo = $data_emissao_titulo;
     }
 
     /**
-     * @param field_type $valo_cobrado_dia_atraso
+     * @param $valor_cobrado_dia_atraso
+     * @throws Exception
      */
-    public function setValoCobradoDiaAtraso($valo_cobrado_dia_atraso)
+    public function setValoCobradoDiaAtraso($valor_cobrado_dia_atraso)
     {
-        //verifica se � um numero
-        if (is_numeric($valo_cobrado_dia_atraso)) {
-            //adicionando caracteres na string
-            $valo_cobrado_dia_atraso = $this->addZeros($valo_cobrado_dia_atraso, 13);
-            //verificando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($valo_cobrado_dia_atraso, 13)) {
-                $this->valoCobradoDiaAtraso = $this->removeFormatacaoMoeda($valo_cobrado_dia_atraso);
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Valor Cobrado Dia Atraso invalidos.');
-            }
-        } else {
+        if (!is_numeric($valor_cobrado_dia_atraso))
             throw new Exception('Error: O campo Valor Cobrado Dia Atraso não é um numero.');
-        }
+            
+        $valor_cobrado_dia_atraso = $this->addZeros($this->removeFormatacaoMoeda($valor_cobrado_dia_atraso), 13);
+            
+        if (!$this->validaTamanhoCampo($valor_cobrado_dia_atraso, 13))
+            throw new Exception('Error: Quantidade de caracteres do campo Valor Cobrado Dia Atraso invalidos.');
+
+        $this->valoCobradoDiaAtraso = $valor_cobrado_dia_atraso;
     }
 
     /**
-     * @param field_type $data_limite_desconto
+     * @param mixed $data_limite_desconto
+     * @throws Exception
      */
     public function setDataLimiteDesconto($data_limite_desconto)
     {
-        //verificando se � um numero
-        if (is_numeric($data_limite_desconto)) {
-            //verificando quantidade de caracteres
-            if ($this->validaTamanhoCampo($data_limite_desconto, 6)) {
-                $this->dataLimiteDesconto = $data_limite_desconto;
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Data Limite Desconto invalidos.');
-            }
-        } else {
+        
+        if (!is_numeric($data_limite_desconto))
             throw new Exception('Error: O campo Data Limite Desconto não é um numero.');
-        }
+
+        if (!$this->validaTamanhoCampo($data_limite_desconto, 6))
+            throw new Exception('Error: Quantidade de caracteres do campo Data Limite Desconto invalidos.');
+
+        $this->dataLimiteDesconto = $data_limite_desconto;
     }
 
     /**
-     * @param field_type $valor_desconto
+     * @param $valor_desconto
+     * @throws Exception
      */
     public function setValorDesconto($valor_desconto)
     {
-        //verificando se � um numero
-        if (is_numeric($valor_desconto)) {
-            //adicionando zeros na string
-            $valor_desconto = $this->addZeros($valor_desconto, 13);
-            //verificando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($valor_desconto, 13)) {
-                $this->valorDesconto = $this->removeFormatacaoMoeda($valor_desconto);
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Valor Desconto invalidos.');
-            }
-        } else {
+        if (!is_numeric($valor_desconto))
             throw new Exception('Error: O campo Valor Desconto não é um numero.');
-        }
+
+        $valor_desconto = $this->addZeros($this->removeFormatacaoMoeda($valor_desconto), 13);
+
+        if (!$this->validaTamanhoCampo($valor_desconto, 13))
+            throw new Exception('Error: Quantidade de caracteres do campo Valor Desconto invalidos.');
+
+        $this->valorDesconto = $valor_desconto;
     }
 
     /**
-     * @param field_type $valor_iof
+     * @param  $valor_iof
+     * @throws Exception
      */
     public function setValorIOF($valor_iof = 0)
     {
-        //verificando se � um numero
-        if (is_numeric($valor_iof)) {
-            //adicionando zeros na string
-            $valor_iof = $this->addZeros($valor_iof, 13);
-            //verificando a quantidade de caracteres
-            if ($this->validaTamanhoCampo($valor_iof, 13)) {
-                $this->valorIOF = $this->removeFormatacaoMoeda($valor_iof);
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Valor IOF invalidos.');
-            }
-        } else {
+        if (!is_numeric($valor_iof))
             throw new Exception('Error: O campo Valor IOF não é um numero.');
-        }
+            
+        $valor_iof = $this->addZeros($this->removeFormatacaoMoeda($valor_iof), 13);
+
+        if (!$this->validaTamanhoCampo($valor_iof, 13))
+            throw new Exception('Error: Quantidade de caracteres do campo Valor IOF invalidos.');
+
+        $this->valorIOF = $valor_iof;
     }
 
     /**
-     * @param field_type $valor_abatimento_concedido_cancelado
+     * @param $valor_abatimento_concedido_cancelado
+     * @throws Exception
      */
     public function setValorAbatimentoConcedidoCancelado($valor_abatimento_concedido_cancelado = 0)
     {
-        //verifica se � um numero
-        if (is_numeric($valor_abatimento_concedido_cancelado)) {
-            //adicionando zeros na string
-            $valor_abatimento_concedido_cancelado = $this->addZeros($valor_abatimento_concedido_cancelado, 13);
-            //verificando quantidade de caracteres
-            if ($this->validaTamanhoCampo($valor_abatimento_concedido_cancelado, 13)) {
-                $this->valorAbatimentoConcedidoCancelado = $this->removeFormatacaoMoeda(
-                    $valor_abatimento_concedido_cancelado
-                );
-            } else {
-                throw new Exception('Error: Quantidade de caracteres do campo Valor Concedido Cancelado invalidos.');
-            }
-        } else {
+        
+        if (!is_numeric($valor_abatimento_concedido_cancelado))
             throw new Exception('Error: O campo Valor Abatimento Concedido Cancelado não é um numero.');
-        }
+            
+        $valor_abatimento_concedido_cancelado = $this->addZeros($this->removeFormatacaoMoeda(
+            $valor_abatimento_concedido_cancelado), 13);
+
+        if (!$this->validaTamanhoCampo($valor_abatimento_concedido_cancelado, 13))
+            throw new Exception('Error: Quantidade de caracteres do campo Valor Concedido Cancelado invalidos.');
+
+        $this->valorAbatimentoConcedidoCancelado = $valor_abatimento_concedido_cancelado;
     }
 
     /**
-     * @param field_type $identificacao_tipo_incricao_pagador
+     * @param $identificacao_tipo_incricao_pagador
+     * @throws Exception
      */
     public function setIdentificacaoTipoIncricaoPagador($identificacao_tipo_incricao_pagador)
     {
@@ -929,135 +889,108 @@ class Detalhes extends Funcoes
     }
 
     /**
-     * @param field_type $numero_inscricao_pagador
+     * @param $numero_inscricao_pagador
+     * @throws Exception
      */
     public function setNumeroInscricaoPagador($numero_inscricao_pagador)
     {
-        //verifica se � um numero
-        if (is_numeric($numero_inscricao_pagador)) {
-            //verificando o tipo de pagador
-            if ($this->getIdentificacaoTipoIncricaoPagador() == '01') {
-                if ($this->validaTamanhoCampo($numero_inscricao_pagador, 11)) {
-                    //completando campo
-                    $numero_inscricao_pagador = '000' . $numero_inscricao_pagador;
-
-                    $this->numeroInscricaoPagador = $numero_inscricao_pagador;
-                } else {
-                    throw new Exception('Error -  CPF do campo Numero Inscrição Pagador Invalido.');
-                }
-            } elseif ($this->getIdentificacaoTipoIncricaoPagador() == '02') {
-                //verificando o tamanho do campo
-                if ($this->validaTamanhoCampo($numero_inscricao_pagador, 14)) {
-                    $this->numeroInscricaoPagador = $numero_inscricao_pagador;
-                } else {
-                    throw new Exception('Error -  CNPJ do campo Numero Inscrição Pagador Invalido.');
-                }
-            } else {
-                throw new Exception('Error -  O campo Numero Inscrição é invalido.');
-            }
-        } else {
+        if (!is_numeric($numero_inscricao_pagador))
             throw new Exception('Error -  O campo Numero Inscrição Pagador não é um numero.');
-        }
+
+        switch ($this->getIdentificacaoTipoIncricaoPagador()):
+            case '01':
+                if (!$this->validaTamanhoCampo($numero_inscricao_pagador, 11))
+                    throw new Exception('Error -  CPF do campo Numero Inscrição Pagador Invalido.');
+                $numero_inscricao_pagador = '000' . $numero_inscricao_pagador;
+                $this->numeroInscricaoPagador = $numero_inscricao_pagador;
+                break;
+            case '02':
+                if (!$this->validaTamanhoCampo($numero_inscricao_pagador, 14))
+                    throw new Exception('Error -  CNPJ do campo Numero Inscrição Pagador Invalido.');
+                $this->numeroInscricaoPagador = $numero_inscricao_pagador;
+                break;
+        endswitch;
     }
 
     /**
-     * @param field_type $nome_pagador
+     * @param  $nome_pagador
+     * @throws Exception
      */
     public function setNomePagador($nome_pagador)
     {
-        //adiciona brancos na string
+        if (mb_strlen($nome_pagador) > 40)
+            throw new Exception('Nome do pagador e muito grande');
+        
         $nome_pagador = $this->montarBranco($nome_pagador, 40, 'right');
-        //verifica a quantidade de caracteres
-        if ($this->validaTamanhoCampo($nome_pagador, 40)) {
-            $this->nomePagador = $nome_pagador;
-        } else {
+        
+        if (!$this->validaTamanhoCampo($nome_pagador, 40))
             throw new Exception('Error - Nome do pagador invalido, excedido o tamanho maximo de 40 caracteres.');
-        }
+
+        $this->nomePagador = $nome_pagador;
     }
 
     /**
-     * @param field_type $endereco_pagador
+     * @param  $endereco_pagador
+     * @throws Exception
      */
     public function setEnderecoPagador($endereco_pagador)
     {
-        //	die($endereco_pagador);
-        $tamanho = strlen($endereco_pagador);
-        if ($tamanho > 40) {
-
+        
+        if (mb_strlen($endereco_pagador) < 40 )
+            $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
+        if (mb_strlen($endereco_pagador) > 40 )
             $endereco_pagador = $this->resumeTexto($endereco_pagador, 39);
 
-            $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
 
-            if ($this->validaTamanhoCampo($endereco_pagador, 40)) {
-                $this->enderecoPagador = $endereco_pagador;
-            } else {
-                throw new Exception(
-                    'Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.'
-                );
-            }
-        } else {
+        if (!$this->validaTamanhoCampo($endereco_pagador, 40))
+            throw new Exception('Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.');
 
-            $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
-
-            if ($this->validaTamanhoCampo($endereco_pagador, 40)) {
-                $this->enderecoPagador = $endereco_pagador;
-            } else {
-                throw new Exception(
-                    'Error - Endereço do pagador invalido, excedido o tamanho maximo de 40 caracteres.'
-                );
-            }
-        }
+        $this->enderecoPagador = $endereco_pagador;
     }
 
     /**
-     * @param field_type $primeira_mensagem
+     * @param $primeira_mensagem
+     * @throws Exception
      */
     public function setPrimeiraMensagem($primeira_mensagem)
     {
-        //preenchendo com brancos
+        if (mb_strlen($primeira_mensagem) > 12)
+            throw new Exception('Error - Primeira mensagem invalida, excedido o tamanho maximo de 12 caracteres.');
+
         $primeira_mensagem = $this->montarBranco($primeira_mensagem, 12, 'right');
 
-        if ($this->validaTamanhoCampo($primeira_mensagem, 12)) {
-            $this->primeiraMensagem = $primeira_mensagem;
-        } else {
+        if (!$this->validaTamanhoCampo($primeira_mensagem, 12))
             throw new Exception('Error - Primeira mensagem invalida, excedido o tamanho maximo de 12 caracteres.');
-        }
+        $this->primeiraMensagem = $primeira_mensagem;
     }
 
     /**
-     * @param field_type $cep
+     * @param $cep
+     * @throws Exception
      */
     public function setCep($cep)
     {
-        //verificando se � um numero
-        if (is_numeric($cep)) {
-            //verificando o tamanho da string
-            if ($this->validaTamanhoCampo($cep, 5)) {
-                $this->cep = $this->addZeros($cep, 5);
-            } else {
-                throw new Exception('Error - Quantidade de caracteres do compo CEP invalidos.');
-            }
-        } else {
+        if (!is_numeric($cep))
             throw new Exception('Error - O campos CEP não é um numero.');
-        }
+
+        if (!$this->validaTamanhoCampo($cep, 5))
+            throw new Exception('Error - Quantidade de caracteres do compo CEP invalidos.');
+        $this->cep = $cep;
     }
 
     /**
-     * @param field_type $sufixo_cep
+     * @param $sufixo_cep
+     * @throws Exception
      */
     public function setSufixoCep($sufixo_cep)
     {
-        //verificando se � um numero
-        if (is_numeric($sufixo_cep)) {
-            //verificando o tamanho da string
-            if ($this->validaTamanhoCampo($sufixo_cep, 3)) {
-                $this->sufixoCep = $this->addZeros($sufixo_cep, 3);
-            } else {
-                throw new Exception('Error - Quantidade de caracteres do campo Sufixo invalidos.');
-            }
-        } else {
+        if (!is_numeric($sufixo_cep))
             throw new Exception('Error - O campos Sufixo CEP não é um numero.');
-        }
+            
+        if (!$this->validaTamanhoCampo($sufixo_cep, 3))
+            throw new Exception('Error - Quantidade de caracteres do campo Sufixo invalidos.');
+
+        $this->sufixoCep = $sufixo_cep;
     }
 
     /**
@@ -1065,73 +998,76 @@ class Detalhes extends Funcoes
      * cobran�a, pois essa tarifa refere-se � negociada pelo Banco com seu cliente
      * benefici�rio. Orienta��o da FEBRABAN (Comunicado FB-170/2005).
      *
-     * @param field_type $sacador_segunda_mensagem
+     * @param $sacador_segunda_mensagem
+     * @throws Exception
      */
     public function setSacadorSegundaMensagem($sacador_segunda_mensagem)
     {
-        //preenchendo com brancos
+        if (!mb_strlen($sacador_segunda_mensagem) <= 60 )
+            $sacador_segunda_mensagem = $this->resumeTexto($sacador_segunda_mensagem,60);
+        
         $sacador_segunda_mensagem = $this->montarBranco($sacador_segunda_mensagem, 60);
 
-        if ($this->validaTamanhoCampo($sacador_segunda_mensagem, 60)) {
-            $this->sacadorSegundaMensagem = $sacador_segunda_mensagem;
-        } else {
+        if (!$this->validaTamanhoCampo($sacador_segunda_mensagem, 60))
             throw new Exception('Error - Dados da segunda mensagem estão invalidos.');
-        }
+
+        $this->sacadorSegundaMensagem = $sacador_segunda_mensagem;
+
     }
 
     /**
-     * @param field_type $numero_sequencial_registro
+     * @param $numero_sequencial_registro
+     * @throws Exception
      */
     public function setNumeroSequencialRegistro($numero_sequencial_registro)
     {
-        //verificando se � um numero
-        if (is_numeric($numero_sequencial_registro)) {
-            //completando com zeros na string
-            $numero_sequencial_registro = $this->addZeros($numero_sequencial_registro, 6);
-            //verificando o tamanho da string
-            if ($this->validaTamanhoCampo($numero_sequencial_registro, 6)) {
-                $this->numeroSequencialRegistro = $numero_sequencial_registro;
-            } else {
-                throw new Exception('Error - Quantidade de caracteres do campo Numero Sequencial Registro invalidos.');
-            }
-        } else {
+        if (mb_strlen($numero_sequencial_registro) > 6)
+            throw new Exception('Error - O campos Numero Sequencial Registro tem que ter no maximo 6 caracteres');
+        if (!is_numeric($numero_sequencial_registro))
             throw new Exception('Error - O campos Numero Sequencial Registro não é um numero.');
-        }
+            
+        $numero_sequencial_registro = $this->addZeros($numero_sequencial_registro, 6);
+
+        if (!$this->validaTamanhoCampo($numero_sequencial_registro, 6))
+            throw new Exception('Error - Quantidade de caracteres do campo Numero Sequencial Registro invalidos.');
+
+        $this->numeroSequencialRegistro = $numero_sequencial_registro;
+
     }
 
     /**
-     * @param field_type $carteira
+     * @param $carteira
+     * @throws Exception
      */
     public function setCarteira($carteira)
     {
-        //verificando se � um numero
-        if (is_numeric($carteira)) {
-            $carteira = $this->addZeros($carteira, 3);
-            if ($this->validaTamanhoCampo($carteira, 3)) {
-                $this->carteira = $carteira;
-            } else {
-                throw new Exception('Error - Quantidade de caracteres do campo Carteira estão invalidos.');
-            }
-        } else {
+        if (mb_strlen($carteira) > 3)
+            throw new Exception('Error - O campos Carteira não por ser maior que 3.');
+        if (!is_numeric($carteira))
             throw new Exception('Error - O campos Carteira não é um numero.');
-        }
+        $carteira = $this->addZeros($carteira, 3);
+        if (!$this->validaTamanhoCampo($carteira, 3))
+            throw new Exception('Error - Quantidade de caracteres do campo Carteira estão invalidos.');
+
+        $this->carteira = $carteira;
     }
 
-    /* (non-PHPdoc)
+    /**(non-PHPdoc)
      * Medotos para gerar a linha dos detalhes dos boletos que seram gerados
      * @see IFuncoes::montar_linha()
+     * @throws Exception
      */
 
     public function montaLinha()
     {
-         $linha = $this->getIdentificacaoRegistro() . //nao seta
-            //opcional para pagador debito em conta corrente
+         $linha = $this->getIdentificacaoRegistro() . 
+            
             $this->addZeros('', 5) .
             $this->addZeros('', 1) .
             $this->addZeros('', 5) .
             $this->addZeros('', 7) .
             $this->addZeros('', 1) .
-            //
+            
             $this->getIdentificacaoEmpresaBenificiarioBanco() .
             $this->montarBranco('', 25) .
             $this->getCodigoBancoDebitoCompensacao() .
@@ -1140,23 +1076,23 @@ class Detalhes extends Funcoes
             $this->getIdentificacaoTituloBanco() .
             $this->getDigitoAutoConsferenciaBancaria() .
             $this->getDescontoBonificacaoDia() .
-            $this->getCondicaoEmissaoPapeletaCobranca() . //nao seta
+            $this->getCondicaoEmissaoPapeletaCobranca() . 
             $this->getIdentDebitoAutomatico() .
-            $this->montarBranco('', 10) . //nao seta
+            $this->montarBranco('', 10) . 
             $this->getIndicadorRateioCredito() .
-            $this->getEnderecamentoAvisoDebito() . //nao seta
-            $this->montarBranco('', 2) . //nao seta
-            $this->getIdentificacaoOcorrencia() . //nao seta
+            $this->getEnderecamentoAvisoDebito() . 
+            $this->montarBranco('', 2) . 
+            $this->getIdentificacaoOcorrencia() . 
             $this->getNumeroDocumento() .
             $this->getDataVencimentoTitulo() .
             $this->getValorTitulo() .
-            $this->getBancoEncarregadoCobranca() . //nao seta
-            $this->getAgenciaDepositaria() . //nao seta
-            $this->getEspecieTitulo() . //nao seta
-            $this->getIdentificacao() . //nao seta
+            $this->getBancoEncarregadoCobranca() . 
+            $this->getAgenciaDepositaria() . 
+            $this->getEspecieTitulo() . 
+            $this->getIdentificacao() . 
             $this->getDataEmissaoTitulo() .
-            $this->getInstrucao1() . //nao seta
-            $this->getInstrucao2() . //nao seta
+            $this->getInstrucao1() . 
+            $this->getInstrucao2() . 
             $this->getValoCobradoDiaAtraso() .
             $this->getDataLimiteDesconto() .
             $this->getValorDesconto() .

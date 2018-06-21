@@ -1,5 +1,5 @@
 {
-    "name": "hmarinjr/remessa-bradesco",
+    "name": "leandrofreires/remessa-bradesco",
     "type": "project",
     "license": "public",
     "description": "Library to create a remittance",
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hmarinjr\\RemessaBradesco\\": [
+            "Leandrofreires\\RemessaBradesco\\": [
                 "src"
             ]
         }

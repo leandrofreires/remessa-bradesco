@@ -1,5 +1,5 @@
 <?php
-namespace Hmarinjr\RemessaBradesco;
+namespace Leandrofreires\RemessaBradesco;
 
 class Arquivo
 {
@@ -120,6 +120,31 @@ class Arquivo
 
         //adicionando boleto
         $this->setDetalhes($detalhes);
+    }
+
+    /**
+     * @param $boleto
+     * @param $config
+     * @throws \Exception
+     */
+
+    public function addBoletoOpcional($boleto, $config)
+    {
+        $registro = new DetalhesOpcionais();
+        $registro->setMensagem1($boleto['mensagem1']);
+        $registro->setMensagem2($boleto['mensagem2']);
+        $registro->setMensagem3($boleto['mensagem3']);
+        $registro->setMensagem4($boleto['mensagem4']);
+        $registro->setDataLimiteDesconto2($boleto['data_desconto_2']);
+        $registro->setValorDesconto2($boleto['valor_desconto_2']);
+        $registro->setDataLimiteDesconto3($boleto['data_desconto_3']);
+        $registro->setValorDesconto3($boleto['valor_desconto_3']);
+        $registro->setCarteira($config['carteira']);
+        $registro->setAgencia($config['agencia']);
+        $registro->setContaCorrente($config['conta_corrente']);
+        $registro->setDigitoCC($config['conta_corrente_digito']);
+        $registro->setNossoNumero($boleto['nosso_numero']);
+        $this->setDetalhes($registro);
     }
 
     /**

@@ -1,5 +1,5 @@
 <?php
-namespace Hmarinjr\RemessaBradesco;
+namespace Leandrofreires\RemessaBradesco;
 
 use Exception;
 
@@ -102,7 +102,7 @@ class HeaderLabel extends Funcoes
      */
     public function setNomeEmpresa($nome_empresa)
     {
-        $length = (int) strlen($nome_empresa);
+        $length = (int) mb_strlen($nome_empresa);
 
         if ($length <= 0 || $length > 30) {
             throw new Exception('Error - Tamanho de texto invalido, para o nome da empresa.');
