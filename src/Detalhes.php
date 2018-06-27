@@ -1063,10 +1063,10 @@ class Detalhes extends Funcoes
          $linha = $this->getIdentificacaoRegistro() . 
             
             $this->addZeros('', 5) .
-            $this->addZeros('', 1) .
+            $this->montarBranco('', 1) .
             $this->addZeros('', 5) .
             $this->addZeros('', 7) .
-            $this->addZeros('', 1) .
+            $this->montarBranco('', 1) .
             
             $this->getIdentificacaoEmpresaBenificiarioBanco() .
             $this->montarBranco('', 25) .

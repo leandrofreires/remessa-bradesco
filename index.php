@@ -8,23 +8,20 @@ include('vendor/autoload.php');
 use Leandrofreires\RemessaBradesco\Arquivo;
 
 //configuracoes
-$config['codigo_empresa'] = '4730443'; //4730443
+$config['codigo_empresa'] = '4730443'; //acessorio escritural
 $config['razao_social'] = 'Uniao Estudantil ';
-$config['numero_remessa'] = '000001';
-$config['data_gravacao'] = '210618';
+$config['numero_remessa'] = '000003';
+$config['data_gravacao'] = '270618';
 $config['carteira'] = '09';
 
 //boleto
-$boleto['agencia'] 						= '00000';
+$boleto['agencia'] 						= '1610';
 $boleto['agencia_dv'] 					= '0';
-//$boleto['razao_conta_corrente']			= '00000';
-$boleto['conta'] 						= '0000000';
-$boleto['conta_dv'] 					= '0';
+$boleto['conta'] 						= '1665';
+$boleto['conta_dv'] 					= '9';
 
 $boleto['carteira'] 					= '9';
-//$boleto['identificacao_empresa'] 		= '6559654968';
-//$boleto['numero_controle'] 				= '5219';
-$boleto['habilitar_debito_compensacao'] = true;
+$boleto['habilitar_debito_compensacao'] = false;
 $boleto['habilitar_multa'] 				= true;
 $boleto['percentual_multa'] 			= '2';
 $boleto['nosso_numero'] 				= '51359';
@@ -34,7 +31,7 @@ $boleto['rateio'] 						= false;
 $boleto['numero_documento'] 			= '51359';
 $boleto['vencimento'] 					= '250718';
 $boleto['valor'] 						= '266.50';
-$boleto['data_emissao_titulo'] 			= '210618';
+$boleto['data_emissao_titulo'] 			= '270618';
 $boleto['valor_dia_atraso'] 			= '0.074';
 $boleto['data_limite_desconto'] 		= '070718';
 $boleto['valor_desconto'] 				= '33.97';
@@ -66,8 +63,9 @@ $remessa = new Arquivo();
 
 $remessa->config($config);
 $remessa->addBoleto($boleto);
+print_r($remessa);
 $remessa->addBoletoOpcional($boleto,$config);
-$dir = __DIR__.'/CB'.'2106'.'A1';
+$dir = __DIR__.'/CB'.'2706'.'A1';
 $remessa->setFilename($dir);
 $remessa->save();
 
