@@ -13,7 +13,10 @@ $config['razao_social'] = 'Uniao Estudantil ';
 $config['numero_remessa'] = '000003';
 $config['data_gravacao'] = '270618';
 $config['carteira'] = '09';
-
+$config['agencia'] 						= '1610';
+$config['agencia_dv'] 					= '0';
+$config['conta'] 						= '1665';
+$config['conta_dv'] 					= '9';
 //boleto
 $boleto['agencia'] 						= '1610';
 $boleto['agencia_dv'] 					= '0';
@@ -63,9 +66,8 @@ $remessa = new Arquivo();
 
 $remessa->config($config);
 $remessa->addBoleto($boleto);
-print_r($remessa);
 $remessa->addBoletoOpcional($boleto,$config);
-$dir = __DIR__.'/CB'.'2706'.'A1';
+$dir = __DIR__.'/CB'.date('dm').'A1';
 $remessa->setFilename($dir);
 $remessa->save();
 

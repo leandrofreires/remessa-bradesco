@@ -141,8 +141,8 @@ class Arquivo
         $registro->setValorDesconto3($boleto['valor_desconto_3']);
         $registro->setCarteira($config['carteira']);
         $registro->setAgencia($config['agencia']);
-        $registro->setContaCorrente($config['conta_corrente']);
-        $registro->setDigitoCC($config['conta_corrente_digito']);
+        $registro->setContaCorrente($config['conta']);
+        $registro->setDigitoCC($config['conta_dv']);
         $registro->setNossoNumero($boleto['nosso_numero']);
         $this->setDetalhes($registro);
     }
@@ -154,7 +154,6 @@ class Arquivo
     public function config($dados)
     {
         $cabecalho = new HeaderLabel();
-        //TESTANDO O HEADERLABEL
         $cabecalho->setCodigoEmpresa($dados['codigo_empresa']);
         $cabecalho->setNomeEmpresa($dados['razao_social']);
         $cabecalho->setNumeroSequencialRemessa($dados['numero_remessa']);
