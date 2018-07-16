@@ -57,10 +57,6 @@ $boleto['data_desconto_2']              = '150718';
 $boleto['valor_desconto_2']             = '22.65';
 $boleto['data_desconto_3']              = '200718';
 $boleto['valor_desconto_3']             = '15.85';
-$config['carteira']                     = '09';
-$config['agencia']                      = '1610';
-$config['conta_corrente']               = '1665';
-$config['conta_corrente_digito']        = '9';
 
 $remessa = new Arquivo();
 

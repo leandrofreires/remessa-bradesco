@@ -1,7 +1,7 @@
 {
     "name": "leandrofreires/remessa-bradesco",
     "description": "Gera arquivos remessa bradesco com a opcao de registro tipo 2 para mais datas de vencimento",
-    "type": "project",
+    "type": "library",
     "license": "GPL-3.0-only",
     "authors": [
         {
