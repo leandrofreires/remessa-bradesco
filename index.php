@@ -22,6 +22,7 @@ $boleto['agencia'] 						= '1610';
 $boleto['agencia_dv'] 					= '0';
 $boleto['conta'] 						= '1665';
 $boleto['conta_dv'] 					= '9';
+$boleto['razao_conta_cc_cliente'] = '0';
 
 $boleto['carteira'] 					= '9';
 $boleto['habilitar_debito_compensacao'] = false;

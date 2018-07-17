@@ -88,6 +88,7 @@ class Arquivo
         $detalhes->setContaCorrente($boleto['conta']);
         $detalhes->setDigitoContaCorrente($boleto['conta_dv']);
         $detalhes->setCarteira($boleto['carteira']);
+        $detalhes->setRazaoContaCorrente($boleto['razao_conta_cc_cliente']);
 
         //informações do boleto
         $detalhes->setCodigoBancoDebitoCompensacao($boleto['habilitar_debito_compensacao']);
