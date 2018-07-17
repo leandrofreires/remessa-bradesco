@@ -545,8 +545,9 @@ class Detalhes extends Funcoes
      */
     public function setRazaoContaCorrente($razao_conta_corrente)
     {
-        if (!is_numeric($razao_conta_corrente))
-            throw new Exception('Error: O campo Razão Conta Corrente não é um numero.');
+        if (isset($razao_conta_corrente))
+            if (!is_numeric($razao_conta_corrente))
+                throw new Exception('Error: O campo Razão Conta Corrente não é um numero.');
         $razao_conta_corrente = $this->addZeros($razao_conta_corrente,5);
         if (!mb_strlen($razao_conta_corrente) <= 5)
             throw new Exception('O campo Razão Conta Corrente excede 5 caracteres');
