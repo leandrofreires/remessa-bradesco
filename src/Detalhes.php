@@ -584,8 +584,9 @@ class Detalhes extends Funcoes
     public function setDigitoContaCorrente($digito_conta_corrente)
     {
         
-        if (!is_numeric($digito_conta_corrente))
-            throw new Exception('Error: O campo Digito Conta Corrente não é um numero.');
+        if (!is_string($digito_conta_corrente))
+            throw new Exception('Error: O campo Digito Conta Corrente não é um campo alfanumerico.');
+        $digito_conta_corrente = $this->montarBranco($digito_conta_corrente,1);
         if (!$this->validaTamanhoCampo($digito_conta_corrente, 1))
             throw new Exception('Error: Quantidade de caracteres do campo Digito Conta Conrrente.');
         $this->digitoContaCorrente = $digito_conta_corrente;
