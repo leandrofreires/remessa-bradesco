@@ -530,9 +530,9 @@ class Detalhes extends Funcoes
      */
     public function setDigitoDebito($digito_debito_debito)
     {
-        if (!is_numeric($digito_debito_debito))
-            throw new Exception('Error: O campo Digito Agencia debito não é um numero.');
-
+        if (!is_string($digito_debito_debito))
+            throw new Exception('Error: O campo Digito Agencia debito não é um tipo alfanumerico.');
+        $digito_debito_debito = $this->montarBranco($digito_debito_debito,1);
         if (!$this->validaTamanhoCampo($digito_debito_debito, 1))
             throw new Exception('Error: Quantidade de digitos para o campo Digito Agencia Debito invalidos.');
 
