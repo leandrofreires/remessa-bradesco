@@ -9,7 +9,7 @@ use Leandrofreires\RemessaBradesco\Arquivo;
 
 //configuracoes
 $config['codigo_empresa'] = '4730443'; //acessorio escritural
-$config['razao_social'] = 'Uniao Estudantil ';
+$config['razao_social'] = 'Uniao Estudantil';
 $config['numero_remessa'] = '000003';
 $config['data_gravacao'] = '270618';
 $config['carteira'] = '09';

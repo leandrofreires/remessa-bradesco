@@ -82,61 +82,24 @@ abstract class Funcoes
      */
     public function validaLinha($string)
     {
-        $return = $this->removeAcentos2($string);
+        $string = strtoupper($this->removeAcentos($string));
 
-        if ($this->validaTamanhoCampo($return, 400)) {
-            //convertendo string para mai�scula
-            return strtoupper($this->removeAcentos($return));
-        } else {
-            //die($string);
-            throw new Exception('Erro - Informações de linha invalidas.');
+        if ($this->validaTamanhoCampo($string, 400)) {
+            return $string;
         }
+
+        throw new Exception('Erro - Informações de linha invalidas.');
     }
 
-    public function removeAcentos2($string)
-    {
-        //$string = 'ÁÍÓÚÉÄÏÖÜËÀÌÒÙÈÃÕÂÎÔÛÊáíóúéäïöüëàìòùèãõâîôûêÇç';
-        return $string =  preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ) );
-    }
+
     /**
      * metodo para remover acentos
-     * @param string
+     * @param string $string = 'ÁÍÓÚÉÄÏÖÜËÀÌÒÙÈÃÕÂÎÔÛÊáíóúéäïöüëàìòùèãõâîôûêÇç';
      * @return string
      */
-    public function removeAcentos($string, $slug = false)
+    public function removeAcentos($string)
     {
-        // Código ASCII das vogais
-        $ascii['a'] = range(224, 230);
-        $ascii['e'] = range(232, 235);
-        $ascii['i'] = range(236, 239);
-        $ascii['o'] = array_merge(range(242, 246), array(240, 248));
-        $ascii['u'] = range(249, 252);
-        // Código ASCII dos outros caracteres
-        $ascii['b'] = array(223);
-        $ascii['c'] = array(231);
-        $ascii['d'] = array(208);
-        $ascii['n'] = array(241);
-        $ascii['y'] = array(253, 255);
-        foreach ($ascii as $key => $item) {
-            $acentos = '';
-            foreach ($item as $codigo) {
-                $acentos .= chr($codigo);
-            }
-
-            $troca[$key] = '/[' . $acentos . ']/i';
-        }
-
-        $string = preg_replace(array_values($troca), array_keys($troca), $string);
-        // Slug?
-        if ($slug) {
-            // Troca tudo que não for letra ou número por um caractere ($slug)
-            $string = preg_replace('/[^a-z0-9]/i', $slug, $string);
-            // Tira os caracteres ($slug) repetidos
-            $string = preg_replace('/' . $slug . '{2,}/i', $slug, $string);
-            $string = trim($string, $slug);
-        }
-
-        return $string;
+        return $string =  preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ) );
     }
 
     /**
@@ -145,21 +108,15 @@ abstract class Funcoes
      * @param $tamanho
      * @return boolean
      */
-    public function validaTamanhoCampo($string, $tamanho, $menor_que = false)
+    public function validaTamanhoCampo($string, $tamanho)
     {
         $length = (int) mb_strlen($string);
 
-        if ($length == $tamanho) {
-            return true;
-        } elseif ($menor_que) {
-            if ($length > 0 && $length <= 40) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
+        if ($length !== $tamanho) {
             return false;
         }
+
+        return true;
     }
 
     /**
