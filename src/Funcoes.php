@@ -82,14 +82,11 @@ abstract class Funcoes
      */
     public function validaLinha($string)
     {
-        $string = strtoupper($this->removeAcentos($string));
-
         if ($this->validaTamanhoCampo($string, 400)) {
             return $string;
         }
         throw new Exception('Erro Validacao do tamanha da linha :'.$string);
     }
-
 
     /**
      * metodo para remover acentos
