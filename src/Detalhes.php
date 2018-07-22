@@ -921,7 +921,7 @@ class Detalhes extends Funcoes
     {
         if (mb_strlen($nome_pagador) > 40)
             throw new Exception('Nome do pagador e muito grande');
-        
+        $nome_pagador = $this->removeAcentos($nome_pagador);
         $nome_pagador = $this->montarBranco($nome_pagador, 40, 'right');
         
         if (!$this->validaTamanhoCampo($nome_pagador, 40))

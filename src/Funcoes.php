@@ -87,8 +87,7 @@ abstract class Funcoes
         if ($this->validaTamanhoCampo($string, 400)) {
             return $string;
         }
-        print_r(mb_strlen($string));
-        throw new Exception($string);
+        throw new Exception('Erro Validacao do tamanha da linha :'.$string);
     }
 
 
