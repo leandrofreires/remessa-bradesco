@@ -96,7 +96,7 @@ abstract class Funcoes
     public function removeAcentos($string)
     {
         $string =  preg_replace( '/[`^~\'"]/', null, iconv( 'UTF-8', 'ASCII//TRANSLIT', $string ));
-        $string = preg_replace('/[^a-z0-9]\s/i', '', $string);
+        $string = preg_replace('/[^a-z0-9\s]/i', '', $string);
         return $string;
     }
 
