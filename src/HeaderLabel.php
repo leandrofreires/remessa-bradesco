@@ -30,7 +30,7 @@ class HeaderLabel extends Funcoes
     private $numeroBradescoCompensacao = 237;
 
     //080 - 094 - 15 - A CONSTANTE - COMPLETAR COM ESPAÇOES EM BRANCO A DIREITA
-    private $nomeBanco = 'Bradesco';
+    private $nomeBanco = 'BRADESCO';
 
     //095 - 100 - 6 - N
     private $dataGravacao = '';     //<---- verificar observações

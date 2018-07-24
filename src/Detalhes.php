@@ -570,6 +570,7 @@ class Detalhes extends Funcoes
 
         if (mb_strlen($conta_corrente) > 7)
             throw new Exception('O campo Conta Corrente não pode ser maior que 7 caracteres');
+
         $conta_corrente = $this->addZeros($conta_corrente, 7);
 
         if (!$this->validaTamanhoCampo($conta_corrente, 7))
@@ -586,7 +587,12 @@ class Detalhes extends Funcoes
         
         if (!is_string($digito_conta_corrente))
             throw new Exception('Error: O campo Digito Conta Corrente não é um campo alfanumerico.');
+
+        if (mb_strlen($digito_conta_corrente) > 1)
+            throw new Exception('Erro: Digito conta corrente maior do que 1');
+
         $digito_conta_corrente = $this->montarBranco($digito_conta_corrente,1);
+
         if (!$this->validaTamanhoCampo($digito_conta_corrente, 1))
             throw new Exception('Error: Quantidade de caracteres do campo Digito Conta Conrrente.');
         $this->digitoContaCorrente = $digito_conta_corrente;
@@ -919,6 +925,7 @@ class Detalhes extends Funcoes
      */
     public function setNomePagador($nome_pagador)
     {
+        $nome_pagador = $this->removeAcentos($nome_pagador);
         if (mb_strlen($nome_pagador) > 40)
             throw new Exception('Nome do pagador e muito grande');
         $nome_pagador = $this->removeAcentos($nome_pagador);
@@ -936,7 +943,7 @@ class Detalhes extends Funcoes
      */
     public function setEnderecoPagador($endereco_pagador)
     {
-        
+        $endereco_pagador = $this->removeAcentos($endereco_pagador);
         if (mb_strlen($endereco_pagador) < 40 )
             $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
         if (mb_strlen($endereco_pagador) > 40 )
@@ -955,6 +962,7 @@ class Detalhes extends Funcoes
      */
     public function setPrimeiraMensagem($primeira_mensagem)
     {
+        $primeira_mensagem = $this->removeAcentos($primeira_mensagem);
         if (mb_strlen($primeira_mensagem) > 12)
             throw new Exception('Error - Primeira mensagem invalida, excedido o tamanho maximo de 12 caracteres.');
 
@@ -1004,6 +1012,7 @@ class Detalhes extends Funcoes
      */
     public function setSacadorSegundaMensagem($sacador_segunda_mensagem)
     {
+        $sacador_segunda_mensagem = $this->removeAcentos($sacador_segunda_mensagem);
         if (!mb_strlen($sacador_segunda_mensagem) <= 60 )
             $sacador_segunda_mensagem = $this->resumeTexto($sacador_segunda_mensagem,60);
         
@@ -1022,6 +1031,7 @@ class Detalhes extends Funcoes
      */
     public function setNumeroSequencialRegistro($numero_sequencial_registro)
     {
+        $numero_sequencial_registro = $this->removeAcentos($numero_sequencial_registro);
         if (mb_strlen($numero_sequencial_registro) > 6)
             throw new Exception('Error - O campos Numero Sequencial Registro tem que ter no maximo 6 caracteres');
         if (!is_numeric($numero_sequencial_registro))
@@ -1042,6 +1052,7 @@ class Detalhes extends Funcoes
      */
     public function setCarteira($carteira)
     {
+        $carteira = $this->removeAcentos($carteira);
         if (mb_strlen($carteira) > 3)
             throw new Exception('Error - O campos Carteira não por ser maior que 3.');
         if (!is_numeric($carteira))
