@@ -78,6 +78,7 @@ class DetalhesOpcionais extends Funcoes
      */
     public function setMensagem1($mensagem1)
     {
+        $mensagem1 = $this->removeAcentos($mensagem1);
         if (!is_string($mensagem1))
             throw new Exception('A mensagem 1 tem de ser passada como string');
         if (mb_strlen($mensagem1) > 80)
@@ -99,6 +100,7 @@ class DetalhesOpcionais extends Funcoes
      */
     public function setMensagem2($mensagem2)
     {
+        $mensagem2 = $this->removeAcentos($mensagem2);
         if (!is_string($mensagem2))
             throw new Exception('A mensagem 2 tem de ser passada como string');
         if (mb_strlen($mensagem2) > 80)
@@ -120,6 +122,7 @@ class DetalhesOpcionais extends Funcoes
      */
     public function setMensagem3($mensagem3)
     {
+        $mensagem3 = $this->removeAcentos($mensagem3);
         if (!is_string($mensagem3))
             throw new Exception('A mensagem 3 tem de ser passada como string');
         if (mb_strlen($mensagem3) > 80)
@@ -141,6 +144,7 @@ class DetalhesOpcionais extends Funcoes
      */
     public function setMensagem4($mensagem4)
     {
+        $mensagem4 = $this->removeAcentos($mensagem4);
         if (!is_string($mensagem4))
             throw new Exception('A mensagem tem de ser passada como string');
         if (mb_strlen($mensagem4) > 80)
