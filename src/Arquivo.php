@@ -1,94 +1,136 @@
 <?php
 namespace Leandrofreires\RemessaBradesco;
+use Exception;
 
+
+/**
+ * Class Arquivo
+ * @package Leandrofreires\RemessaBradesco
+ */
 class Arquivo
 {
+
+    /**
+     * @var
+     */
     private $header_label;
+
+    /**
+     * @var
+     */
     private $filename;
+
+    /**
+     * @var
+     */
     private $trailler;
+
+    /**
+     *
+     */
     const QUEBRA_LINHA = "\r\n";
+
+    /**
+     * @var array
+     */
     private $detalhes = array();
 
     /**
-     * @return the $filename
+     * @var
+     */
+    private $empresa;
+
+
+    /**
+     * @return mixed
      */
     public function getFilename()
     {
         return $this->filename;
     }
 
+
     /**
-     * @param field_type $filename
+     * @param $filename
      */
     public function setFilename($filename)
     {
         $this->filename = $filename;
     }
 
+
     /**
-     * @return the $detalhes
+     * @return array
      */
     public function getDetalhes()
     {
         return $this->detalhes;
     }
 
+
     /**
-     * @param multitype: $detalhes
+     * @param $detalhes
      */
     public function setDetalhes($detalhes)
     {
         $this->detalhes[] = $detalhes;
     }
 
+
     /**
-     * @return the $header_label
+     * @return mixed
      */
     public function getHeaderLabel()
     {
         return $this->header_label;
     }
 
+
     /**
-     * @return the $trailler
+     * @return mixed
      */
     public function getTrailler()
     {
         return $this->trailler;
     }
 
+
     /**
-     * @param field_type $header_label
+     * @param $header_label
      */
     public function setHeaderLabel($header_label)
     {
         $this->header_label = $header_label;
     }
 
+
     /**
-     * @param field_type $trailler
+     * @param $trailler
      */
     public function setTrailler($trailler)
     {
         $this->trailler = $trailler;
     }
 
+
     /**
-     * metodo para adicionar boletos na remessa
-     * @param unknown $boleto
+     * @param $boleto
+     * @throws Exception
      */
     public function addBoleto($boleto)
     {
         //preenchendo dados dos detalhes
         $detalhes = new Detalhes();
 
+        $detalhes->setEmpresa($this->getEmpresa());
+
         //informações da conta
-        $detalhes->setAgenciaDebito($boleto['agencia']);
-        $detalhes->setDigitoDebito($boleto['agencia_dv']);
-        $detalhes->setContaCorrente($boleto['conta']);
-        $detalhes->setDigitoContaCorrente($boleto['conta_dv']);
-        $detalhes->setCarteira($boleto['carteira']);
-        $detalhes->setRazaoContaCorrente($boleto['razao_conta_cc_cliente']);
+        $detalhes->setAgenciaDebitoCliente($boleto['agencia']);
+        $detalhes->setDigitoDebitoCliente($boleto['agencia_dv']);
+        $detalhes->setContaCorrenteCliente($boleto['conta']);
+        $detalhes->setDigitoContaCorrenteCliente($boleto['conta_dv']);
+        $detalhes->setCarteira($this->getEmpresa()->getCarteira());
+        $detalhes->setRazaoContaCorrenteCliente($boleto['razao_conta_cc_cliente']);
 
         //informações do boleto
         $detalhes->setCodigoBancoDebitoCompensacao($boleto['habilitar_debito_compensacao']);
@@ -123,12 +165,12 @@ class Arquivo
         $this->setDetalhes($detalhes);
     }
 
+
     /**
      * @param $boleto
      * @param $config
-     * @throws \Exception
+     * @throws Exception
      */
-
     public function addBoletoOpcional($boleto, $config)
     {
         $registro = new DetalhesOpcionais();
@@ -148,23 +190,26 @@ class Arquivo
         $this->setDetalhes($registro);
     }
 
-    /**
-     * metodo para configurar a remessa
-     * @param unknown $dados
-     */
-    public function config($dados)
-    {
-        $cabecalho = new HeaderLabel();
-        $cabecalho->setCodigoEmpresa($dados['codigo_empresa']);
-        $cabecalho->setNomeEmpresa($dados['razao_social']);
-        $cabecalho->setNumeroSequencialRemessa($dados['numero_remessa']);
-        $cabecalho->setDataGravacao($dados['data_gravacao']);
 
+    /**
+     * @param $dados
+     * @throws Exception
+     */
+    public function config($config)
+    {
+        $this->empresa = new Empresa($config['agencia'],$config['agencia_dv'],$config['conta'], $config['conta_dv'],$config['razao_social'],$config['codigo_empresa'], $config['carteira']);
+        $cabecalho = new HeaderLabel();
+        $cabecalho->setCodigoEmpresa($this->getEmpresa()->getCodigoEmpresa());
+        $cabecalho->setNomeEmpresa($this->getEmpresa()->getRazaoSocial());
+        $cabecalho->setNumeroSequencialRemessa($config['numero_remessa']);
+        $cabecalho->setDataGravacao(date('dmy'));
         $this->setHeaderLabel($cabecalho);
     }
 
+
     /**
-     * metodo para criar o texto inteiro da remessa
+     * @return string
+     * @throws Exception
      */
     public function getText()
     {
@@ -186,7 +231,17 @@ class Arquivo
     }
 
     /**
-     * metodo para fazer download do arquivo de remessa
+     * @return mixed
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+
+
+    /**
+     * @throws Exception
      */
     public function save()
     {
@@ -200,9 +255,9 @@ class Arquivo
         file_put_contents($this->getFilename() . '.REM', $text);
     }
 
+
     /**
-     * Metodo para retornar a quantida de detalhes inseridos na remessa
-     * @return number
+     * @return int
      */
     public function countDetalhes()
     {

@@ -1,145 +1,160 @@
 <?php
+
 namespace Leandrofreires\RemessaBradesco;
 
 use Exception;
 
 class Detalhes extends Funcoes
 {
-    
+
     private $identificacaoRegistro = 1;
 
-    
-    private $agenciaDebito;
 
-    
-    private $digitoDebito;
+    private $agenciaDebitoCliente;
 
-    
-    private $razaoContaCorrente;
 
-    
-    private $contaCorrente;
+    private $digitoDebitoCliente;
 
-    
-    private $digitoContaCorrente;
 
-    
+    private $razaoContaCorrenteCliente;
+
+
+    private $contaCorrenteCliente;
+
+
+    private $digitoContaCorrenteCliente;
+
+
     private $identificacaoEmpresaBenificiarioBanco;
 
-    
+
     private $numeroControleParticipante;
 
-    
+
     private $codigoBancoDebitoCompensacao;
 
-    
+
     private $campoMulta;
 
-    
+
     private $percentualMulta;
 
-    
+
     private $identificacaoTituloBanco;
 
-    
+
     private $digitoAutoConsferenciaBancaria;
 
-    
+
     private $descontoBonificacaoDia;
 
-    
-    private $condicaoEmissaoPapeletaCobranca = 2; 
 
-    
-    private $identDebitoAutomatico = 'N'; 
+    private $condicaoEmissaoPapeletaCobranca = 2;
 
-    
-    
-    
+
+    private $identDebitoAutomatico = 'N';
+
+
     private $indicadorRateioCredito;
 
-    
-    private $enderecamentoAvisoDebito = '0'; 
 
-    
-    
-    
-    private $identificacaoOcorrencia = '01'; 
+    private $enderecamentoAvisoDebito = '0';
 
-    
+
+    private $identificacaoOcorrencia = '01';
+
+
     private $numeroDocumento;
 
-    
+
     private $dataVencimentoTitulo;
 
-    
-    private $valorTitulo; 
 
-    
+    private $valorTitulo;
+
+
     private $bancoEncarregadoCobranca = "000";
 
-    
+
     private $agenciaDepositaria = "00000";
 
-    
-    private $especieTitulo = '01'; 
 
-    
+    private $especieTitulo = '01';
+
+
     private $identificacao = "N";
 
-    
+
     private $dataEmissaoTitulo;
 
-    
-    private $instrucao1 = '00'; 
 
-    
-    private $instrucao2 = '00'; 
+    private $instrucao1 = '00';
 
-    
-    private $valoCobradoDiaAtraso; 
 
-    
-    private $dataLimiteDesconto; 
+    private $instrucao2 = '00';
 
-    
+
+    private $valoCobradoDiaAtraso;
+
+
+    private $dataLimiteDesconto;
+
+
     private $valorDesconto;
 
-    
+
     private $valorIOF;
 
-    
+
     private $valorAbatimentoConcedidoCancelado;
 
-    
-    private $identificacaoTipoIncricaoPagador; 
 
-    
-    private $numeroInscricaoPagador; 
+    private $identificacaoTipoIncricaoPagador;
 
-    
+
+    private $numeroInscricaoPagador;
+
+
     private $nomePagador;
 
-    
+
     private $enderecoPagador;
 
-    
+
     private $primeiraMensagem;
 
-    
+
     private $cep;
 
-    
+
     private $sufixoCep;
 
-    
-    private $sacadorSegundaMensagem; 
 
-    
+    private $sacadorSegundaMensagem;
+
+
     private $numeroSequencialRegistro;
 
-    
+
     private $carteira;
+
+    private $empresa;
+
+    /**
+     * @return mixed
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * @param mixed $empresa
+     */
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
+    }
 
     /**
      * @return mixed mixed $cateira
@@ -152,41 +167,41 @@ class Detalhes extends Funcoes
     /**
      * @return mixed $agencia_debito
      */
-    public function getAgenciaDebito()
+    public function getAgenciaDebitoCliente()
     {
-        return $this->agenciaDebito;
+        return $this->agenciaDebitoCliente;
     }
 
     /**
      * @return mixed $digito_debito_debito
      */
-    public function getDigitoDebito()
+    public function getDigitoDebitoCliente()
     {
-        return $this->digitoDebito;
+        return $this->digitoDebitoCliente;
     }
 
     /**
      * @return mixed
      */
-    public function getRazaoContaCorrente()
+    public function getRazaoContaCorrenteCliente()
     {
-        return $this->razaoContaCorrente;
+        return $this->razaoContaCorrenteCliente;
     }
 
     /**
      * @return mixed $conta_corrente
      */
-    public function getContaCorrente()
+    public function getContaCorrenteCliente()
     {
-        return $this->contaCorrente;
+        return $this->contaCorrenteCliente;
     }
 
     /**
      * @return mixed $digito_conta_corrente
      */
-    public function getDigitoContaCorrente()
+    public function getDigitoContaCorrenteCliente()
     {
-        return $this->digitoContaCorrente;
+        return $this->digitoContaCorrenteCliente;
     }
 
     /**
@@ -199,10 +214,10 @@ class Detalhes extends Funcoes
          * exemplo: 0|009|01800|0018399|7
          */
         $identificacao_empresa_benificiario_banco = '0' .
-            $this->getCarteira() .
-            $this->getAgenciaDebito() .
-            $this->getContaCorrente() .
-            $this->getDigitoContaCorrente();
+            $this->getEmpresa()->getCarteira() .
+            $this->getEmpresa()->getAgencia() .
+            $this->getEmpresa()->getConta() .
+            $this->getEmpresa()->getContaDigito();
         $this->identificacaoEmpresaBenificiarioBanco = $identificacao_empresa_benificiario_banco;
 
         return $this->identificacaoEmpresaBenificiarioBanco;
@@ -508,7 +523,7 @@ class Detalhes extends Funcoes
      * @param $agencia_debito
      * @throws Exception
      */
-    public function setAgenciaDebito($agencia_debito)
+    public function setAgenciaDebitoCliente($agencia_debito)
     {
         if (!is_numeric($agencia_debito))
             throw new Exception('Error: O campo Agencia_debito não é um numero.');
@@ -516,34 +531,34 @@ class Detalhes extends Funcoes
         if (mb_strlen($agencia_debito) > 5)
             throw new Exception('Agencia nao pode ser maior que 5');
 
-        $agencia_debito = $this->addZeros($agencia_debito, 5);
+        $agencia_debito = str_pad($agencia_debito, 5, 0, STR_PAD_LEFT);
 
         if (!$this->validaTamanhoCampo($agencia_debito, 5))
             throw new Exception('A quantidade dos digito do numero da agencia excedido.');
 
-        $this->agenciaDebito = $agencia_debito;
+        $this->agenciaDebitoCliente = $agencia_debito;
     }
 
     /**
      * @param $digito_debito_debito
      * @throws Exception
      */
-    public function setDigitoDebito($digito_debito_debito)
+    public function setDigitoDebitoCliente($digito_debito_debito)
     {
         if (!is_string($digito_debito_debito))
             throw new Exception('Error: O campo Digito Agencia debito não é um tipo alfanumerico.');
-        $digito_debito_debito = $this->montarBranco($digito_debito_debito,1);
+        $digito_debito_debito = $this->montarBranco($digito_debito_debito, 1);
         if (!$this->validaTamanhoCampo($digito_debito_debito, 1))
             throw new Exception('Error: Quantidade de digitos para o campo Digito Agencia Debito invalidos.');
 
-        $this->digitoDebito = $digito_debito_debito;
+        $this->digitoDebitoCliente = $digito_debito_debito;
     }
 
     /**
      * @param $razao_conta_corrente
      * @throws Exception
      */
-    public function setRazaoContaCorrente($razao_conta_corrente)
+    public function setRazaoContaCorrenteCliente($razao_conta_corrente)
     {
         if (!is_numeric($razao_conta_corrente))
             throw new Exception('Error: O campo Razão Conta Corrente não é um numero.');
@@ -556,14 +571,14 @@ class Detalhes extends Funcoes
         if (!$this->validaTamanhoCampo($razao_conta_corrente, 5))
             throw new Exception('Error: Quantidade de caracteres do campo Razão Conta Corrente invalidos.');
 
-        $this->razaoContaCorrente = $razao_conta_corrente;
+        $this->razaoContaCorrenteCliente = $razao_conta_corrente;
     }
 
     /**
      * @param $conta_corrente
      * @throws Exception
      */
-    public function setContaCorrente($conta_corrente)
+    public function setContaCorrenteCliente($conta_corrente)
     {
         if (!is_numeric($conta_corrente))
             throw new Exception('Error: O campo Conta Corrente não é um numero.');
@@ -575,27 +590,27 @@ class Detalhes extends Funcoes
 
         if (!$this->validaTamanhoCampo($conta_corrente, 7))
             throw new Exception('Error: Quantidade d ecaracteres do campo Conta Corrente invalidos.');
-        $this->contaCorrente = $conta_corrente;
+        $this->contaCorrenteCliente = $conta_corrente;
     }
 
     /**
      * @param $digito_conta_corrente
      * @throws Exception
      */
-    public function setDigitoContaCorrente($digito_conta_corrente)
+    public function setDigitoContaCorrenteCliente($digito_conta_corrente)
     {
-        
+
         if (!is_string($digito_conta_corrente))
             throw new Exception('Error: O campo Digito Conta Corrente não é um campo alfanumerico.');
 
         if (mb_strlen($digito_conta_corrente) > 1)
             throw new Exception('Erro: Digito conta corrente maior do que 1');
 
-        $digito_conta_corrente = $this->montarBranco($digito_conta_corrente,1);
+        $digito_conta_corrente = $this->montarBranco($digito_conta_corrente, 1);
 
         if (!$this->validaTamanhoCampo($digito_conta_corrente, 1))
             throw new Exception('Error: Quantidade de caracteres do campo Digito Conta Conrrente.');
-        $this->digitoContaCorrente = $digito_conta_corrente;
+        $this->digitoContaCorrenteCliente = $digito_conta_corrente;
     }
 
     /**
@@ -607,9 +622,9 @@ class Detalhes extends Funcoes
     {
         if (!is_numeric($numero_controle_participante))
             throw new Exception('Error: O campo Numero Controle Participante não é um numero.');
-            
+
         $numero_controle_participante = $this->addZeros($numero_controle_participante, 25);
-            
+
         if (!$this->validaTamanhoCampo($numero_controle_participante, 25))
             throw new Exception('Error: Quantidade de caracteres do campo Numero Controle Participante invalidos.');
 
@@ -668,7 +683,7 @@ class Detalhes extends Funcoes
      */
     public function setIdentificacaoTituloBanco($identificacao_titulo_banco)
     {
-        
+
         if (!is_numeric($identificacao_titulo_banco))
             throw new Exception('Error: O campo Identificação Titulo Banco não é um numero.');
 
@@ -693,12 +708,12 @@ class Detalhes extends Funcoes
      */
     public function setDescontoBonificacaoDia($desconto_bonificacao_dia)
     {
-        
+
         if (!is_numeric($desconto_bonificacao_dia))
             throw new Exception('Error: O campo Desconto Bonificação Dia  não é um numero.');
 
         $desconto_bonificacao_dia = $this->addZeros($desconto_bonificacao_dia, 10);
-            
+
         if (!$this->validaTamanhoCampo($desconto_bonificacao_dia, 10))
             throw new Exception('Error: Quantidade de caracteres do campo Desconto Bonificação Dia invalidos');
 
@@ -724,7 +739,7 @@ class Detalhes extends Funcoes
     {
         if (!ctype_alnum($numero_documento))
             throw new Exception('Error: O campo Numero Documento não é alfanumerico.');
-            
+
         $numero_documento = $this->addZeros($numero_documento, 10);
 
         if (!$this->validaTamanhoCampo($numero_documento, 10))
@@ -743,7 +758,7 @@ class Detalhes extends Funcoes
             throw new Exception('Error: O campo Data Vencimento Titulo não é um numero.');
 
         $data_vencimento_titulo = $this->addZeros($data_vencimento_titulo, 6);
-            
+
         if (!$this->validaTamanhoCampo($data_vencimento_titulo, 6))
             throw new Exception('Error: Quantidade de caracteres do campo Data Vencimento Titulo invalidos.');
         $this->dataVencimentoTitulo = $data_vencimento_titulo;
@@ -774,9 +789,9 @@ class Detalhes extends Funcoes
     {
         if (!is_numeric($data_emissao_titulo))
             throw new Exception('Error: O campo Data Emissao Titulo não é um numero.');
-            
+
         $data_emissao_titulo = $this->addZeros($data_emissao_titulo, 6);
-            
+
         if (!$this->validaTamanhoCampo($data_emissao_titulo, 6))
             throw new Exception('Error: Quantidade de caracteres do campo Data Emiss�o Titulo invalidos.');
 
@@ -791,9 +806,9 @@ class Detalhes extends Funcoes
     {
         if (!is_numeric($valor_cobrado_dia_atraso))
             throw new Exception('Error: O campo Valor Cobrado Dia Atraso não é um numero.');
-            
+
         $valor_cobrado_dia_atraso = $this->addZeros($this->removeFormatacaoMoeda($valor_cobrado_dia_atraso), 13);
-            
+
         if (!$this->validaTamanhoCampo($valor_cobrado_dia_atraso, 13))
             throw new Exception('Error: Quantidade de caracteres do campo Valor Cobrado Dia Atraso invalidos.');
 
@@ -806,7 +821,7 @@ class Detalhes extends Funcoes
      */
     public function setDataLimiteDesconto($data_limite_desconto)
     {
-        
+
         if (!is_numeric($data_limite_desconto))
             throw new Exception('Error: O campo Data Limite Desconto não é um numero.');
 
@@ -841,7 +856,7 @@ class Detalhes extends Funcoes
     {
         if (!is_numeric($valor_iof))
             throw new Exception('Error: O campo Valor IOF não é um numero.');
-            
+
         $valor_iof = $this->addZeros($this->removeFormatacaoMoeda($valor_iof), 13);
 
         if (!$this->validaTamanhoCampo($valor_iof, 13))
@@ -856,10 +871,10 @@ class Detalhes extends Funcoes
      */
     public function setValorAbatimentoConcedidoCancelado($valor_abatimento_concedido_cancelado = 0)
     {
-        
+
         if (!is_numeric($valor_abatimento_concedido_cancelado))
             throw new Exception('Error: O campo Valor Abatimento Concedido Cancelado não é um numero.');
-            
+
         $valor_abatimento_concedido_cancelado = $this->addZeros($this->removeFormatacaoMoeda(
             $valor_abatimento_concedido_cancelado), 13);
 
@@ -930,7 +945,7 @@ class Detalhes extends Funcoes
             throw new Exception('Nome do pagador e muito grande');
         $nome_pagador = $this->removeAcentos($nome_pagador);
         $nome_pagador = $this->montarBranco($nome_pagador, 40, 'right');
-        
+
         if (!$this->validaTamanhoCampo($nome_pagador, 40))
             throw new Exception('Error - Nome do pagador invalido, excedido o tamanho maximo de 40 caracteres.');
 
@@ -944,9 +959,9 @@ class Detalhes extends Funcoes
     public function setEnderecoPagador($endereco_pagador)
     {
         $endereco_pagador = $this->removeAcentos($endereco_pagador);
-        if (mb_strlen($endereco_pagador) < 40 )
+        if (mb_strlen($endereco_pagador) < 40)
             $endereco_pagador = $this->montarBranco($endereco_pagador, 40, 'right');
-        if (mb_strlen($endereco_pagador) > 40 )
+        if (mb_strlen($endereco_pagador) > 40)
             $endereco_pagador = $this->resumeTexto($endereco_pagador, 39);
 
 
@@ -995,7 +1010,7 @@ class Detalhes extends Funcoes
     {
         if (!is_numeric($sufixo_cep))
             throw new Exception('Error - O campos Sufixo CEP não é um numero.');
-            
+
         if (!$this->validaTamanhoCampo($sufixo_cep, 3))
             throw new Exception('Error - Quantidade de caracteres do campo Sufixo invalidos.');
 
@@ -1013,9 +1028,9 @@ class Detalhes extends Funcoes
     public function setSacadorSegundaMensagem($sacador_segunda_mensagem)
     {
         $sacador_segunda_mensagem = $this->removeAcentos($sacador_segunda_mensagem);
-        if (!mb_strlen($sacador_segunda_mensagem) <= 60 )
-            $sacador_segunda_mensagem = $this->resumeTexto($sacador_segunda_mensagem,60);
-        
+        if (!mb_strlen($sacador_segunda_mensagem) <= 60)
+            $sacador_segunda_mensagem = $this->resumeTexto($sacador_segunda_mensagem, 60);
+
         $sacador_segunda_mensagem = $this->montarBranco($sacador_segunda_mensagem, 60);
 
         if (!$this->validaTamanhoCampo($sacador_segunda_mensagem, 60))
@@ -1036,7 +1051,7 @@ class Detalhes extends Funcoes
             throw new Exception('Error - O campos Numero Sequencial Registro tem que ter no maximo 6 caracteres');
         if (!is_numeric($numero_sequencial_registro))
             throw new Exception('Error - O campos Numero Sequencial Registro não é um numero.');
-            
+
         $numero_sequencial_registro = $this->addZeros($numero_sequencial_registro, 6);
 
         if (!$this->validaTamanhoCampo($numero_sequencial_registro, 6))
@@ -1072,54 +1087,50 @@ class Detalhes extends Funcoes
 
     public function montaLinha()
     {
-         $linha = $this->getIdentificacaoRegistro() . 
-            
-            $this->addZeros('', 5) .
-            $this->montarBranco('', 1) .
-            $this->addZeros('', 5) .
-            $this->addZeros('', 7) .
-            $this->montarBranco('', 1) .
-            
-            $this->getIdentificacaoEmpresaBenificiarioBanco() .
-            $this->montarBranco('', 25) .
-            $this->getCodigoBancoDebitoCompensacao() .
-            $this->getCampoMulta() .
-            $this->getPercentualMulta() .
-            $this->getIdentificacaoTituloBanco() .
-            $this->getDigitoAutoConsferenciaBancaria() .
-            $this->getDescontoBonificacaoDia() .
-            $this->getCondicaoEmissaoPapeletaCobranca() . 
-            $this->getIdentDebitoAutomatico() .
-            $this->montarBranco('', 10) . 
-            $this->getIndicadorRateioCredito() .
-            $this->getEnderecamentoAvisoDebito() . 
-            $this->montarBranco('', 2) . 
-            $this->getIdentificacaoOcorrencia() . 
-            $this->getNumeroDocumento() .
-            $this->getDataVencimentoTitulo() .
-            $this->getValorTitulo() .
-            $this->getBancoEncarregadoCobranca() . 
-            $this->getAgenciaDepositaria() . 
-            $this->getEspecieTitulo() . 
-            $this->getIdentificacao() . 
-            $this->getDataEmissaoTitulo() .
-            $this->getInstrucao1() . 
-            $this->getInstrucao2() . 
-            $this->getValoCobradoDiaAtraso() .
-            $this->getDataLimiteDesconto() .
-            $this->getValorDesconto() .
-            $this->getValorIOF() .
-            $this->getValorAbatimentoConcedidoCancelado() .
-            $this->getIdentificacaoTipoIncricaoPagador() .
-            $this->getNumeroInscricaoPagador() .
-            $this->getNomePagador() .
-            $this->getEnderecoPagador() .
-            $this->getPrimeiraMensagem() .
-            $this->getCep() .
-            $this->getSufixoCep() .
-            $this->getSacadorSegundaMensagem() .
-            $this->getNumeroSequencialRegistro();
-
+        $linha = $this->getIdentificacaoRegistro()
+            . str_pad('', 5, 0)
+            . str_pad('', 1, ' ')
+            . str_pad('', 12, 0)
+            . str_pad('', 1, ' ')
+            . $this->getIdentificacaoEmpresaBenificiarioBanco()
+            . $this->montarBranco('', 25)
+            . $this->getCodigoBancoDebitoCompensacao()
+            . $this->getCampoMulta()
+            . $this->getPercentualMulta()
+            . $this->getIdentificacaoTituloBanco()
+            . $this->getDigitoAutoConsferenciaBancaria()
+            . $this->getDescontoBonificacaoDia()
+            . $this->getCondicaoEmissaoPapeletaCobranca()
+            . $this->getIdentDebitoAutomatico()
+            . $this->montarBranco('', 10)
+            . $this->getIndicadorRateioCredito()
+            . $this->getEnderecamentoAvisoDebito()
+            . $this->montarBranco('', 2)
+            . $this->getIdentificacaoOcorrencia()
+            . $this->getNumeroDocumento()
+            . $this->getDataVencimentoTitulo()
+            . $this->getValorTitulo()
+            . $this->getBancoEncarregadoCobranca()
+            . $this->getAgenciaDepositaria()
+            . $this->getEspecieTitulo()
+            . $this->getIdentificacao()
+            . $this->getDataEmissaoTitulo()
+            . $this->getInstrucao1()
+            . $this->getInstrucao2()
+            . $this->getValoCobradoDiaAtraso()
+            . $this->getDataLimiteDesconto()
+            . $this->getValorDesconto()
+            . $this->getValorIOF()
+            . $this->getValorAbatimentoConcedidoCancelado()
+            . $this->getIdentificacaoTipoIncricaoPagador()
+            . $this->getNumeroInscricaoPagador()
+            . $this->getNomePagador()
+            . $this->getEnderecoPagador()
+            . $this->getPrimeiraMensagem()
+            . $this->getCep()
+            . $this->getSufixoCep()
+            . $this->getSacadorSegundaMensagem()
+            . $this->getNumeroSequencialRegistro();
         return $this->validaLinha($linha);
     }
 }

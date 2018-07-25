@@ -11,17 +11,16 @@ use Leandrofreires\RemessaBradesco\Arquivo;
 $config['codigo_empresa'] = '4730443'; //acessorio escritural
 $config['razao_social'] = 'Uniao Estudantil';
 $config['numero_remessa'] = '000003';
-$config['data_gravacao'] = '270618';
 $config['carteira'] = '09';
 $config['agencia'] 						= '1610';
 $config['agencia_dv'] 					= '0';
 $config['conta'] 						= '1665';
 $config['conta_dv'] 					= '9';
 //boleto
-$boleto['agencia'] 						= '1610';
-$boleto['agencia_dv'] 					= '0';
-$boleto['conta'] 						= '1665';
-$boleto['conta_dv'] 					= '9';
+$boleto['agencia'] 						= '0';
+$boleto['agencia_dv'] 					= '';
+$boleto['conta'] 						= '0';
+$boleto['conta_dv'] 					= '';
 $boleto['razao_conta_cc_cliente'] = '0';
 
 $boleto['carteira'] 					= '9';
@@ -62,9 +61,12 @@ $boleto['valor_desconto_3']             = '15.85';
 $remessa = new Arquivo();
 
 $remessa->config($config);
+
+
 $remessa->addBoleto($boleto);
-$remessa->addBoletoOpcional($boleto,$config);
+
 $dir = __DIR__.'/CB'.date('dm').'A1';
 $remessa->setFilename($dir);
+$remessa->addBoletoOpcional($boleto,$config);
 $remessa->save();
 
